@@ -22,6 +22,13 @@ namespace webService.App_Code
             this.itemId = itemId;
             this.Init();
         }
+        public FoodItem(FoodItem other)
+        {
+            this.itemId = other.itemId;
+            this.itemPrice = other.itemPrice;
+            this.itemDescription = other.itemDescription;
+            this.userId = other.userId;
+        }
 
         // inits the food item from database data
         public int Init()
@@ -72,7 +79,7 @@ namespace webService.App_Code
             string query = string.Format("select userId from foodItems userId='{0}'", userId);
             DataSet itemsTable = DbQ.ExecuteQuery(query);
 
-            List<FoodItem> foodItemList = new List<FoodItem>;
+            List<FoodItem> foodItemList = new List<FoodItem>();
             int amountOfItems= itemsTable.Tables[0].Rows.Count;
             int i = 0;
             
@@ -85,7 +92,7 @@ namespace webService.App_Code
         }
 
         // get a list of items
-        public static List<User> GetItemsList()
+        public static List<FoodItem> GetItemsList()
         {
             List<FoodItem> foodItemList = new List<FoodItem>();
             int newItemId = 0;
