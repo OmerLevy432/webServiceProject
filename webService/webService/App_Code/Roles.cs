@@ -7,12 +7,39 @@ using System.Web;
 
 namespace webService.App_Code
 {
+    /*
+    unlike other classes who use the IDbAction interface
+    who enforces the following method: Init, AddNew, Delete, Update
+    im only interested in implementing the Init method 
+    im not interested in a program changing the current values in the roles data base
+    i want to limit the program to only access it
+     */
     public class Roles
     {
         // define getters and setters
         public string roleTag { get; set; }
 
         // constructors
+        public Roles() { }
+        public Roles(int roleId)
+        {
+            this.Init(roleId);
+        }
+        private int Init(int roleId)
+        {
+            // create string query and execute it
+            string query = string.Format("select * from roles where roleId = {0}", roleId);
+            DataSet rolesTavle = DbQ.ExecuteQuery(query);
 
+            // check if there are items within the dataset
+            if (rolesTavle.Tables[0].Rows.Count > 0)
+            {
+                this.roleTag = rolesTavle.Tables[0].Rows[0]["roleId"].ToString();
+                return 1;
+            }
+
+            // return -1 for not finding a role by his id
+            return -1;
+        }
     }
 }

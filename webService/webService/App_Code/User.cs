@@ -15,6 +15,7 @@ namespace webService.App_Code
         public string userEmail { get; set; }
         public string userPassword { get; set; }
         public int roleId { get; set; }
+        public Roles roleTag { get; set; }
 
         // define constructors
         public User() { }
@@ -34,10 +35,11 @@ namespace webService.App_Code
             // check if there are users within the dataset
             if (usersTable.Tables[0].Rows.Count > 0)
             {
+                this.roleId = int.Parse(usersTable.Tables[0].Rows[0]["roleId"].ToString());
                 this.userName = usersTable.Tables[0].Rows[0]["userName"].ToString();
                 this.userEmail = usersTable.Tables[0].Rows[0]["userEmail"].ToString();
                 this.userPassword = usersTable.Tables[0].Rows[0]["userPassword"].ToString();
-                this.roleId = int.Parse(usersTable.Tables[0].Rows[0]["roleId"].ToString());
+                this.roleTag = new Roles(this.roleId);
 
                 return 1;
             }
