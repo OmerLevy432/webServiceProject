@@ -73,6 +73,9 @@
     <Content Include="App_Code\dbClass.cs" />
     <Content Include="App_Code\User.cs" />
     <Content Include="App_Code\FoodItem.cs" />
+    <Content Include="App_Code\orderedItem.cs" />
+    <Content Include="App_Code\Roles.cs" />
+    <Content Include="App_Code\Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
