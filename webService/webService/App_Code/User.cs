@@ -9,12 +9,20 @@ namespace webService.App_Code
 {
     public class User : IDbAction
     {
+        // define public user types
+        public enum  RoleTypes
+        {
+            NormalUser,
+            WorkerUser,
+            AdminUser
+        };
+
+
         // define get and setters
         public int UserId { get; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
-        //public int RoleId { get; set; }
         public Roles RoleTag { get; set; }
         public Orders OrderHistory { get; set; }
 
