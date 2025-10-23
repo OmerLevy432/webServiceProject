@@ -10,39 +10,39 @@ namespace webService.App_Code
     public class FoodItem : IDbAction
     {
         // define getters and setters
-        public int itemId { get; }
-        public double itemPrice { get; set; }
-        public string itemDescription { get; set; }
-        public int userId { get; set; }
+        public int ItemId { get; }
+        public double ItemPrice { get; set; }
+        public string ItemDescription { get; set; }
+        public int UserId { get; set; }
 
         // constructors
         public FoodItem() { }
         public FoodItem(int itemId)
         {
-            this.itemId = itemId;
+            this.ItemId = itemId;
             this.Init();
         }
         public FoodItem(FoodItem other)
         {
-            this.itemId = other.itemId;
-            this.itemPrice = other.itemPrice;
-            this.itemDescription = other.itemDescription;
-            this.userId = other.userId;
+            this.ItemId = other.ItemId;
+            this.ItemPrice = other.ItemPrice;
+            this.ItemDescription = other.ItemDescription;
+            this.UserId = other.UserId;
         }
 
         // inits the food item from database data
         public int Init()
         {
             // create string query and execute it
-            string query = string.Format("select * from foodItems where itemId={0}", this.itemId);
+            string query = string.Format("select * from foodItems where itemId={0}", this.ItemId);
             DataSet itemsTable = DbQ.ExecuteQuery(query);
 
             // check if there are items within the dataset
             if (itemsTable.Tables[0].Rows.Count > 0)
             {
-                this.itemDescription = itemsTable.Tables[0].Rows[0]["itemDescription"].ToString();
-                this.itemPrice = double.Parse(itemsTable.Tables[0].Rows[0]["itemPrice"].ToString());
-                this.userId = int.Parse(itemsTable.Tables[0].Rows[0]["userId"].ToString());
+                this.ItemDescription = itemsTable.Tables[0].Rows[0]["itemDescription"].ToString();
+                this.ItemPrice = double.Parse(itemsTable.Tables[0].Rows[0]["itemPrice"].ToString());
+                this.UserId = int.Parse(itemsTable.Tables[0].Rows[0]["userId"].ToString());
 
                 return 1;
             }
@@ -54,21 +54,21 @@ namespace webService.App_Code
         // add new item to the database
         public int AddNew()
         {
-            string query = string.Format("insert into foodItems (itemPrice, itemDescription, userId) values ('{0}','{1}','{2}')", this.itemPrice, this.itemDescription, this.userId);
+            string query = string.Format("insert into foodItems (itemPrice, itemDescription, userId) values ('{0}','{1}','{2}')", this.ItemPrice, this.ItemDescription, this.UserId);
             return DbQ.ExecuteNonQuery(query);
         }
 
         // upadates item data in the database
         public int Update()
         {
-            string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}' where itemId={4};", this.itemPrice, this.itemDescription, this.userId, this.itemId);
+            string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}' where itemId={4};", this.ItemPrice, this.ItemDescription, this.UserId, this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 
         // delete the item from the database
         public int Delete()
         {
-            string query = string.Format("delete from items where itemId={0}", this.itemId);
+            string query = string.Format("delete from items where itemId={0}", this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 

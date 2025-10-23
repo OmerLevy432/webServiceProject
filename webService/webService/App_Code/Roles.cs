@@ -17,24 +17,26 @@ namespace webService.App_Code
     public class Roles
     {
         // define getters and setters
-        public string roleTag { get; set; }
+        public int RoleId { get; set; }
+        public string RoleTag { get; set; }
 
         // constructors
         public Roles() { }
         public Roles(int roleId)
         {
-            this.Init(roleId);
+            this.RoleId = roleId;
+            this.Init();
         }
-        private int Init(int roleId)
+        private int Init()
         {
             // create string query and execute it
-            string query = string.Format("select * from roles where roleId = {0}", roleId);
+            string query = string.Format("select * from roles where roleId = {0}", this.RoleId);
             DataSet rolesTavle = DbQ.ExecuteQuery(query);
 
             // check if there are items within the dataset
             if (rolesTavle.Tables[0].Rows.Count > 0)
             {
-                this.roleTag = rolesTavle.Tables[0].Rows[0]["roleId"].ToString();
+                this.RoleTag = rolesTavle.Tables[0].Rows[0]["roleId"].ToString();
                 return 1;
             }
 

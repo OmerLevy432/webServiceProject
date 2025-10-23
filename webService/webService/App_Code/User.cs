@@ -10,18 +10,19 @@ namespace webService.App_Code
     public class User : IDbAction
     {
         // define get and setters
-        public int userId { get; }
-        public string userName { get; set; }
-        public string userEmail { get; set; }
-        public string userPassword { get; set; }
-        public int roleId { get; set; }
-        public Roles roleTag { get; set; }
+        public int UserId { get; }
+        public string UserName { get; set; }
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
+        //public int RoleId { get; set; }
+        public Roles RoleTag { get; set; }
+        public Orders OrderHistory { get; set; }
 
         // define constructors
         public User() { }
         public User(int id)
         {
-            this.userId = id;
+            this.UserId = id;
             this.Init();
         }
 
@@ -29,17 +30,19 @@ namespace webService.App_Code
         public int Init()
         {
             // create string query and execute it
-            string query = string.Format("select * from users where userId={0}", this.userId);
+            string query = string.Format("select * from users where userId={0}", this.UserId);
             DataSet usersTable = DbQ.ExecuteQuery(query);
 
             // check if there are users within the dataset
             if (usersTable.Tables[0].Rows.Count > 0)
             {
-                this.roleId = int.Parse(usersTable.Tables[0].Rows[0]["roleId"].ToString());
-                this.userName = usersTable.Tables[0].Rows[0]["userName"].ToString();
-                this.userEmail = usersTable.Tables[0].Rows[0]["userEmail"].ToString();
-                this.userPassword = usersTable.Tables[0].Rows[0]["userPassword"].ToString();
-                this.roleTag = new Roles(this.roleId);
+                int roleId = int.Parse(usersTable.Tables[0].Rows[0]["roleId"].ToString());
+
+                this.UserName = usersTable.Tables[0].Rows[0]["userName"].ToString();
+                this.UserEmail = usersTable.Tables[0].Rows[0]["userEmail"].ToString();
+                this.UserPassword = usersTable.Tables[0].Rows[0]["userPassword"].ToString();
+                this.RoleTag = new Roles(roleId);
+                this.OrderHistory = new Orders(this.UserId);
 
                 return 1;
             }
@@ -51,21 +54,29 @@ namespace webService.App_Code
         // add new user to the database
         public int AddNew()
         {
-            string query = string.Format("insert into users (userName, userEmail,, userPassword, roleId) values ('{0}','{1}','{2}','{3}')", this.userName, this.userEmail, this.userPassword, this.roleId);
+            string query = string.Format("insert into users (userName, userEmail,, userPassword, roleId) values ('{0}','{1}','{2}','{3}')", this.UserName, this.UserEmail, this.UserPassword, this.RoleTag.RoleId.ToString());
             return DbQ.ExecuteNonQuery(query);
         }
         
-        // upadates user data in the database
+        // updates user data in the database
         public int Update()
         {
-            string query = string.Format("update users set userName='{0}' , userEmail='{1}' , userPassword='{2}', roleId='{3}' where userId={4};", this.userName, this.userEmail, this.userPassword, this.roleId, this.userId);
+            string query = string.Format("update users set userName='{0}' , userEmail='{1}' , userPassword='{2}', roleId='{3}' where userId={4};", this.UserName, this.UserEmail, this.UserPassword, this.RoleTag.RoleId.ToString(), this.UserId);
             return DbQ.ExecuteNonQuery(query);
         }
         
         // delete the user from the database
         public int Delete()
         {
-            string query = string.Format("delete from user where userId={0}", this.userId);
+            int orderDeleteResult = this.OrderHistory.Delete();
+
+            // check if the orders were deleted properly
+            if (orderDeleteResult == -1)
+            {
+                return -1;
+            }
+
+            string query = string.Format("delete from user where userId={0}", this.UserId);
             return DbQ.ExecuteNonQuery(query);
         }
 
@@ -78,7 +89,7 @@ namespace webService.App_Code
 
             if (userTable.Tables[0].Rows.Count > 0)
             {
-                int newUserid = int.Parse(userTable.Tables[0].Rows[0]["userid"].ToString());
+                int newUserid = int.Parse(userTable.Tables[0].Rows[0]["userId"].ToString());
                 return new User(newUserid);
             }
             return null;
