@@ -31,12 +31,12 @@ namespace webService.App_Code
         {
             // create string query and execute it
             string query = string.Format("select * from roles where roleId = {0}", this.RoleId);
-            DataSet rolesTavle = DbQ.ExecuteQuery(query);
+            DataSet rolesTable = DbQ.ExecuteQuery(query);
 
             // check if there are items within the dataset
-            if (rolesTavle.Tables[0].Rows.Count > 0)
+            if (rolesTable.Tables[0].Rows.Count > 0)
             {
-                this.RoleTag = rolesTavle.Tables[0].Rows[0]["roleId"].ToString();
+                this.RoleTag = rolesTable.Tables[0].Rows[0]["roleTag"].ToString();
                 return 1;
             }
 

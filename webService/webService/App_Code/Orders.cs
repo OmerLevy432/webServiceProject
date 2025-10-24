@@ -15,8 +15,11 @@ namespace webService.App_Code
         public List<OrderedItems> OrderList { get; private set; }
 
         // define constructors
-        public Orders() { }
-        public Orders(int userId)
+        public Orders()
+        { 
+            this.OrderList = new List<OrderedItems>();
+        }
+        public Orders(int userId) : this()
         {
             this.UserId = userId;
             this.Init();
@@ -38,7 +41,7 @@ namespace webService.App_Code
             {
                 orderId = int.Parse(allOrders.Tables[0].Rows[i]["orderId"].ToString());
                 this.OrderList.Add(new OrderedItems(orderId));
-                this.OrderDate = Convert.ToDateTime(allOrders.Tables[0].Rows[i].ToString());
+                this.OrderDate = Convert.ToDateTime(allOrders.Tables[0].Rows[i]["orderDate"]);
             }
 
             return 1;
@@ -51,7 +54,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i++; i < this.OrderList.Count; i++)
+            for (i; i < this.OrderList.Count; i++)
             {
                 query = string.Format("insert into orders (orderId, userId, orderDate) values ('{0}', '{1}', '{2}')", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
@@ -67,9 +70,9 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i++; i < this.OrderList.Count; i++)
+            for (i; i < this.OrderList.Count; i++)
             {
-                query = string.Format("update orders set orderId='{0}' , userId'{1}' where orderDate={2};", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
+                query = string.Format("update orders set orderId='{0}', userId='{1}' where orderDate={2};", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
@@ -83,39 +86,16 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i++; i < this.OrderList.Count; i++)
+            for (i; i < this.OrderList.Count; i++)
             {
-                if (this.DeleteEachOrderItems(i) == -1)
-                {
-                    return -1;
-                }
+                // delete the ordered items
+                this.OrderList[i].Delete();
 
                 query = string.Format("delete from orders where orderId={0} and userId={1} and orderDate={2}", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
             return rowsChanged;
-        }
-
-        private int DeleteEachOrderItems(int orderIndex)
-        {
-            OrderedItems currentOrder = this.OrderList[orderIndex];
-            int j = 0;
-            int deleteResult = 0;
-
-            // delete each item inside each order
-            for (j = 0; j < currentOrder.FoodItems.Count; j++)
-            {
-                deleteResult = currentOrder.FoodItems[j].Delete();
-
-                // checks if deleted properly
-                if (deleteResult == -1)
-                {
-                    return -1;
-                }
-            }
-
-            return 1;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace webService.App_Code
 
 
         // define get and setters
-        public int UserId { get; }
+        public int UserId { get; set;}
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
@@ -62,7 +62,7 @@ namespace webService.App_Code
         // add new user to the database
         public int AddNew()
         {
-            string query = string.Format("insert into users (userName, userEmail,, userPassword, roleId) values ('{0}','{1}','{2}','{3}')", this.UserName, this.UserEmail, this.UserPassword, this.RoleTag.RoleId.ToString());
+            string query = string.Format("insert into users (userName, userEmail, userPassword, roleId) values ('{0}','{1}','{2}','{3}')", this.UserName, this.UserEmail, this.UserPassword, this.RoleTag.RoleId.ToString());
             return DbQ.ExecuteNonQuery(query);
         }
         
@@ -84,7 +84,7 @@ namespace webService.App_Code
                 return -1;
             }
 
-            string query = string.Format("delete from user where userId={0}", this.UserId);
+            string query = string.Format("delete from users where userId={0}", this.UserId);
             return DbQ.ExecuteNonQuery(query);
         }
 

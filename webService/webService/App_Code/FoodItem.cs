@@ -61,14 +61,14 @@ namespace webService.App_Code
         // upadates item data in the database
         public int Update()
         {
-            string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}' where itemId={4};", this.ItemPrice, this.ItemDescription, this.UserId, this.ItemId);
+            string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}' where itemId={3};", this.ItemPrice, this.ItemDescription, this.UserId, this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 
         // delete the item from the database
         public int Delete()
         {
-            string query = string.Format("delete from items where itemId={0}", this.ItemId);
+            string query = string.Format("delete from foodItems where itemId={0}", this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 
@@ -76,16 +76,17 @@ namespace webService.App_Code
         public static List<FoodItem> GetItemByCreator(int userId)
         {
             // retrive item from database 
-            string query = string.Format("select userId from foodItems userId='{0}'", userId);
+            string query = string.Format("select userId from foodItems where userId='{0}'", userId);
             DataSet itemsTable = DbQ.ExecuteQuery(query);
 
             List<FoodItem> foodItemList = new List<FoodItem>();
             int amountOfItems= itemsTable.Tables[0].Rows.Count;
             int i = 0;
+            int newItemId = 0;
             
             for (i = 0; i < amountOfItems; i++)
             {
-                int newItemId = int.Parse(itemsTable.Tables[0].Rows[i]["userid"].ToString());
+                newItemId = int.Parse(itemsTable.Tables[0].Rows[i]["itemId"].ToString());
                 foodItemList.Add(new FoodItem(newItemId));
             }
             return foodItemList;
@@ -108,7 +109,7 @@ namespace webService.App_Code
 
             for (i = 0; i < amountOfItems; i++)
             {
-                newItemId = int.Parse(itemsTable.Tables[0].Rows[i]["userId"].ToString());
+                newItemId = int.Parse(itemsTable.Tables[0].Rows[i]["itemId"].ToString());
                 foodItemList.Add(new FoodItem(newItemId));
             }
 
