@@ -88,7 +88,6 @@ namespace webService.App_Code
 
             for (i; i < this.OrderList.Count; i++)
             {
-                // delete the ordered items
                 this.OrderList[i].Delete();
 
                 query = string.Format("delete from orders where orderId={0} and userId={1} and orderDate={2}", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
