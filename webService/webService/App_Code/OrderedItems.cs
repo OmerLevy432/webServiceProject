@@ -22,7 +22,7 @@ namespace webService.App_Code
         public OrderedItems()
         {
             // initializing lists
-            this.foodItems = new List<FoodItem>();
+            this.FoodItems = new List<FoodItem>();
             this.FoodAmounts = new List<int>();
         }
         public OrderedItems(int orderId) : this()
@@ -60,7 +60,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i; i < this.FoodItems.Count; i++)
+            for (i = 0; i < this.FoodItems.Count; i++)
             {
                 query = string.Format("insert into orderedItems (orderId, itemId, amount) values ('{0}', '{1}', '{2}')", this.OrderId, this.FoodItems[i].ItemId, this.FoodAmounts[i]);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
@@ -76,7 +76,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i; i < this.FoodItems.Count; i++)
+            for (i = 0; i < this.FoodItems.Count; i++)
             {
                 query = string.Format("update orderedItems set itemId='{0}', amount='{1}' where orderId={2};", this.FoodItems[i].ItemId, this.FoodAmounts[i], this.OrderId);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
@@ -92,7 +92,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i; i < this.FoodItems.Count; i++)
+            for (i = 0; i < this.FoodItems.Count; i++)
             {
                 query = string.Format("delete from orderedItems where orderId={0} and itemId={1} and amount={2}", this.OrderId, this.FoodItems[i].ItemId, this.FoodAmounts[i]);
                 rowsChanged += DbQ.ExecuteNonQuery(query);

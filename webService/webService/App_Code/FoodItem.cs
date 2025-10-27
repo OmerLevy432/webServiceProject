@@ -30,7 +30,11 @@ namespace webService.App_Code
             this.UserId = other.UserId;
         }
 
-        // inits the food item from database data
+        // 
+        /// <summary>
+        /// inits the food item from database data
+        /// </summary>
+        /// <returns> 1 - if the retrival was successful, else it returns -1 </returns>
         public int Init()
         {
             // create string query and execute it
@@ -51,32 +55,45 @@ namespace webService.App_Code
             return -1;
         }
 
-        // add new item to the database
+        /// <summary>
+        /// add new food item to the database 
+        /// </summary>
+        /// <returns>returns if the insertion was successful</returns>
         public int AddNew()
         {
             string query = string.Format("insert into foodItems (itemPrice, itemDescription, userId) values ('{0}','{1}','{2}')", this.ItemPrice, this.ItemDescription, this.UserId);
             return DbQ.ExecuteNonQuery(query);
         }
 
-        // upadates item data in the database
+        /// <summary>
+        /// updates item data in the database 
+        /// </summary>
+        /// <returns>returns if the update was successful</returns>
         public int Update()
         {
             string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}' where itemId={3};", this.ItemPrice, this.ItemDescription, this.UserId, this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 
-        // delete the item from the database
+        /// <summary>
+        /// delete the food item from the database
+        /// </summary>
+        /// <returns>if the deletion was successful</returns>
         public int Delete()
         {
             string query = string.Format("delete from foodItems where itemId={0}", this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 
-        // get item by its creator
+        /// <summary>
+        /// get food items by its creator
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>a list of the food items from the creator</returns>
         public static List<FoodItem> GetItemByCreator(int userId)
         {
-            // retrive item from database 
-            string query = string.Format("select userId from foodItems where userId='{0}'", userId);
+            // retrive food items from database 
+            string query = string.Format("select * from foodItems where userId='{0}'", userId);
             DataSet itemsTable = DbQ.ExecuteQuery(query);
 
             List<FoodItem> foodItemList = new List<FoodItem>();
@@ -92,7 +109,10 @@ namespace webService.App_Code
             return foodItemList;
         }
 
-        // get a list of items
+        /// <summary>
+        /// get a list of food items
+        /// </summary>
+        /// <returns>list of all the food items</returns>
         public static List<FoodItem> GetItemsList()
         {
             List<FoodItem> foodItemList = new List<FoodItem>();
@@ -100,13 +120,12 @@ namespace webService.App_Code
             int i = 0;
             int amountOfItems = 0;
 
-            // retrive the users from the database
-            string query = string.Format("select userId from foodItems");
+            // retrive the food items from the database
+            string query = string.Format("select * from foodItems");
             DataSet itemsTable = DbQ.ExecuteQuery(query);
 
-            // if there are users
-            amountOfItems = itemsTable.Tables[0].Rows.Count;
 
+            amountOfItems = itemsTable.Tables[0].Rows.Count;
             for (i = 0; i < amountOfItems; i++)
             {
                 newItemId = int.Parse(itemsTable.Tables[0].Rows[i]["itemId"].ToString());

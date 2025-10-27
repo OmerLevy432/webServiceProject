@@ -70,12 +70,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\dbClass.cs" />
-    <Content Include="App_Code\User.cs" />
-    <Content Include="App_Code\FoodItem.cs" />
-    <Content Include="App_Code\Roles.cs" />
-    <Content Include="App_Code\Orders.cs" />
-    <Content Include="App_Code\OrderedItems.cs" />
+    <Compile Include="App_Code\dbClass.cs" />
+    <Compile Include="App_Code\MyUser.cs" />
+    <Compile Include="App_Code\FoodItem.cs" />
+    <Compile Include="App_Code\Roles.cs" />
+    <Compile Include="App_Code\Orders.cs" />
+    <Compile Include="App_Code\OrderedItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
