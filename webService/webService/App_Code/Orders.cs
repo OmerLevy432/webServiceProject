@@ -54,7 +54,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i; i < this.OrderList.Count; i++)
+            for (i = 0; i < this.OrderList.Count; i++)
             {
                 query = string.Format("insert into orders (orderId, userId, orderDate) values ('{0}', '{1}', '{2}')", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
@@ -70,7 +70,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i; i < this.OrderList.Count; i++)
+            for (i = 0; i < this.OrderList.Count; i++)
             {
                 query = string.Format("update orders set orderId='{0}', userId='{1}' where orderDate={2};", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
@@ -86,7 +86,7 @@ namespace webService.App_Code
             string query = "";
             int rowsChanged = 0;
 
-            for (i; i < this.OrderList.Count; i++)
+            for (i = 0; i < this.OrderList.Count; i++)
             {
                 this.OrderList[i].Delete();
 
