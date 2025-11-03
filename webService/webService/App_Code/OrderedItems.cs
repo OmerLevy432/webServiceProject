@@ -10,12 +10,12 @@ namespace webService.App_Code
     public class OrderedItems : IDbAction
     {
         // define setters and getters
-        public int OrderId { get; private set; }
+        public int OrderId { get;  set; }
 
         /*
          there is a seperate list for the items and their counts
          */
-        public List<FoodItem> FoodItems { get; private set; }
+        public List<FoodItem> FoodItems { get; set; }
         public List<int> FoodAmounts { get; set; }
 
         // constructors
