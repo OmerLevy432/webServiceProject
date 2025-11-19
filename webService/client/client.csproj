@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addUser.aspx" />
     <Content Include="default.aspx" />
     <Content Include="UserList.aspx" />
     <None Include="Properties\Settings.settings">
@@ -89,6 +90,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addUser.aspx.cs">
+      <DependentUpon>addUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addUser.aspx.designer.cs">
+      <DependentUpon>addUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminMaster.Master.cs">
       <DependentUpon>adminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
