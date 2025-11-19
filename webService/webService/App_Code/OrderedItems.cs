@@ -17,6 +17,7 @@ namespace webService.App_Code
          */
         public List<FoodItem> FoodItems { get; set; }
         public List<int> FoodAmounts { get; set; }
+        public DateTime OrderDate { get; set; }
 
         // constructors
         public OrderedItems()
@@ -49,6 +50,11 @@ namespace webService.App_Code
                 this.FoodItems.Add(new FoodItem(newItemId));
                 this.FoodAmounts.Add(int.Parse(itemsOrderedTable.Tables[0].Rows[i]["amount"].ToString()));
             }
+
+            // gets the date of the order
+            query = string.Format("select orderDate from orders where orderId = {0}", this.OrderId);
+            DataSet orderDate = DbQ.ExecuteQuery(query);
+            this.OrderDate = Convert.ToDateTime(orderDate.Tables[0].Rows[0]["orderDate"]);
 
             return 1;
         }

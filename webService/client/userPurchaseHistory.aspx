@@ -10,7 +10,7 @@
         <ItemTemplate>
             <div>
                 Items:
-                <%# Eval("FoodItems") %> - <%# Eval("OrderDate") %>
+                <%# Eval("FoodItems") %>
                 Amounts:
             </div>
         </ItemTemplate>

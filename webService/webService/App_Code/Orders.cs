@@ -11,7 +11,6 @@ namespace webService.App_Code
     {
         // define getters and setters
         public int UserId { get; set; }
-        public DateTime OrderDate { get; set; }
         public List<OrderedItems> OrderList { get; private set; }
 
         // define constructors
@@ -41,7 +40,7 @@ namespace webService.App_Code
             {
                 orderId = int.Parse(allOrders.Tables[0].Rows[i]["orderId"].ToString());
                 this.OrderList.Add(new OrderedItems(orderId));
-                this.OrderDate = Convert.ToDateTime(allOrders.Tables[0].Rows[i]["orderDate"]);
+                this.OrderList[i].OrderDate = Convert.ToDateTime(allOrders.Tables[0].Rows[i]["orderDate"]);
             }
 
             return 1;
@@ -56,7 +55,7 @@ namespace webService.App_Code
 
             for (i = 0; i < this.OrderList.Count; i++)
             {
-                query = string.Format("insert into orders (orderId, userId, orderDate) values ('{0}', '{1}', '{2}')", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
+                query = string.Format("insert into orders (orderId, userId, orderDate) values ('{0}', '{1}', '{2}')", this.OrderList[i].OrderId, this.UserId, this.OrderList[i].OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
@@ -72,7 +71,7 @@ namespace webService.App_Code
 
             for (i = 0; i < this.OrderList.Count; i++)
             {
-                query = string.Format("update orders set orderId='{0}', userId='{1}' where orderDate={2};", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
+                query = string.Format("update orders set orderId='{0}', userId='{1}' where orderDate={2};", this.OrderList[i].OrderId, this.UserId, this.OrderList[i].OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
@@ -90,7 +89,7 @@ namespace webService.App_Code
             {
                 this.OrderList[i].Delete();
 
-                query = string.Format("delete from orders where orderId={0} and userId={1} and orderDate={2}", this.OrderList[i].OrderId, this.UserId, this.OrderDate);
+                query = string.Format("delete from orders where orderId={0} and userId={1} and orderDate={2}", this.OrderList[i].OrderId, this.UserId, this.OrderList[i].OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
