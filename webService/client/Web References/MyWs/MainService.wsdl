@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserGetResult" type="tns:MyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MyUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleTag" type="tns:Roles" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderHistory" type="tns:Orders" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Roles">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleTag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Orders">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderList" type="tns:ArrayOfOrderedItems" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderedItems">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderedItems" nillable="true" type="tns:OrderedItems" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderedItems">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OrderId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FoodItems" type="tns:ArrayOfFoodItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="FoodAmounts" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFoodItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FoodItem" nillable="true" type="tns:FoodItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FoodItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPrice" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UserAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newUser" type="tns:MyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserAddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userToDelete" type="tns:MyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserDeleteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userToUpdate" type="tns:MyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByPersonalData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByPersonalDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByPersonalDataResult" type="tns:MyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUsersResult" type="tns:ArrayOfMyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMyUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MyUser" nillable="true" type="tns:MyUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FoodItemGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FoodItemGetResult" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemToAdd" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FoodItemAddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="itemToUpdate" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FoodItemUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="itemToDelete" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FoodItemDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FoodItemDeleteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllFoodItems">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllFoodItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllFoodItemsResult" type="tns:ArrayOfFoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFoodItemsOfCreator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFoodItemsOfCreatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFoodItemsOfCreatorResult" type="tns:ArrayOfFoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserGetSoapIn">
+    <wsdl:part name="parameters" element="tns:UserGet" />
+  </wsdl:message>
+  <wsdl:message name="UserGetSoapOut">
+    <wsdl:part name="parameters" element="tns:UserGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserAddSoapIn">
+    <wsdl:part name="parameters" element="tns:UserAdd" />
+  </wsdl:message>
+  <wsdl:message name="UserAddSoapOut">
+    <wsdl:part name="parameters" element="tns:UserAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:UserDelete" />
+  </wsdl:message>
+  <wsdl:message name="UserDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:UserDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:UserUpdate" />
+  </wsdl:message>
+  <wsdl:message name="UserUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UserUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPersonalDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByPersonalData" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPersonalDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByPersonalDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemGetSoapIn">
+    <wsdl:part name="parameters" element="tns:FoodItemGet" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemGetSoapOut">
+    <wsdl:part name="parameters" element="tns:FoodItemGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemAddSoapIn">
+    <wsdl:part name="parameters" element="tns:FoodItemAdd" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemAddSoapOut">
+    <wsdl:part name="parameters" element="tns:FoodItemAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:FoodItemUpdate" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:FoodItemUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:FoodItemDelete" />
+  </wsdl:message>
+  <wsdl:message name="FoodItemDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:FoodItemDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllFoodItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllFoodItems" />
+  </wsdl:message>
+  <wsdl:message name="GetAllFoodItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllFoodItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFoodItemsOfCreatorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFoodItemsOfCreator" />
+  </wsdl:message>
+  <wsdl:message name="GetFoodItemsOfCreatorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFoodItemsOfCreatorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MainServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserGet">
+      <wsdl:input message="tns:UserGetSoapIn" />
+      <wsdl:output message="tns:UserGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAdd">
+      <wsdl:input message="tns:UserAddSoapIn" />
+      <wsdl:output message="tns:UserAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserDelete">
+      <wsdl:input message="tns:UserDeleteSoapIn" />
+      <wsdl:output message="tns:UserDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserUpdate">
+      <wsdl:input message="tns:UserUpdateSoapIn" />
+      <wsdl:output message="tns:UserUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPersonalData">
+      <wsdl:input message="tns:GetUserByPersonalDataSoapIn" />
+      <wsdl:output message="tns:GetUserByPersonalDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersSoapIn" />
+      <wsdl:output message="tns:GetAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemGet">
+      <wsdl:input message="tns:FoodItemGetSoapIn" />
+      <wsdl:output message="tns:FoodItemGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemAdd">
+      <wsdl:input message="tns:FoodItemAddSoapIn" />
+      <wsdl:output message="tns:FoodItemAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemUpdate">
+      <wsdl:input message="tns:FoodItemUpdateSoapIn" />
+      <wsdl:output message="tns:FoodItemUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemDelete">
+      <wsdl:input message="tns:FoodItemDeleteSoapIn" />
+      <wsdl:output message="tns:FoodItemDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFoodItems">
+      <wsdl:input message="tns:GetAllFoodItemsSoapIn" />
+      <wsdl:output message="tns:GetAllFoodItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFoodItemsOfCreator">
+      <wsdl:input message="tns:GetFoodItemsOfCreatorSoapIn" />
+      <wsdl:output message="tns:GetFoodItemsOfCreatorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainServiceSoap" type="tns:MainServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserGet">
+      <soap:operation soapAction="http://tempuri.org/UserGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAdd">
+      <soap:operation soapAction="http://tempuri.org/UserAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDelete">
+      <soap:operation soapAction="http://tempuri.org/UserDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserUpdate">
+      <soap:operation soapAction="http://tempuri.org/UserUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPersonalData">
+      <soap:operation soapAction="http://tempuri.org/GetUserByPersonalData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemGet">
+      <soap:operation soapAction="http://tempuri.org/FoodItemGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemAdd">
+      <soap:operation soapAction="http://tempuri.org/FoodItemAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemUpdate">
+      <soap:operation soapAction="http://tempuri.org/FoodItemUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemDelete">
+      <soap:operation soapAction="http://tempuri.org/FoodItemDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFoodItems">
+      <soap:operation soapAction="http://tempuri.org/GetAllFoodItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoodItemsOfCreator">
+      <soap:operation soapAction="http://tempuri.org/GetFoodItemsOfCreator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MainServiceSoap12" type="tns:MainServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserGet">
+      <soap12:operation soapAction="http://tempuri.org/UserGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAdd">
+      <soap12:operation soapAction="http://tempuri.org/UserAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDelete">
+      <soap12:operation soapAction="http://tempuri.org/UserDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserUpdate">
+      <soap12:operation soapAction="http://tempuri.org/UserUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPersonalData">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByPersonalData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemGet">
+      <soap12:operation soapAction="http://tempuri.org/FoodItemGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemAdd">
+      <soap12:operation soapAction="http://tempuri.org/FoodItemAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemUpdate">
+      <soap12:operation soapAction="http://tempuri.org/FoodItemUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodItemDelete">
+      <soap12:operation soapAction="http://tempuri.org/FoodItemDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFoodItems">
+      <soap12:operation soapAction="http://tempuri.org/GetAllFoodItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoodItemsOfCreator">
+      <soap12:operation soapAction="http://tempuri.org/GetFoodItemsOfCreator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MainService">
+    <wsdl:port name="MainServiceSoap" binding="tns:MainServiceSoap">
+      <soap:address location="http://localhost:53238/MainService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MainServiceSoap12" binding="tns:MainServiceSoap12">
+      <soap12:address location="http://localhost:53238/MainService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

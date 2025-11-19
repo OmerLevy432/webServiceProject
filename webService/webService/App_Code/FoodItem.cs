@@ -93,7 +93,7 @@ namespace webService.App_Code
         public static List<FoodItem> GetItemByCreator(int userId)
         {
             // retrive food items from database 
-            string query = string.Format("select * from foodItems where userId='{0}'", userId);
+            string query = string.Format("select * from foodItems where userId={0}", userId);
             DataSet itemsTable = DbQ.ExecuteQuery(query);
 
             List<FoodItem> foodItemList = new List<FoodItem>();

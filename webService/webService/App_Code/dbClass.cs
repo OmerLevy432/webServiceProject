@@ -19,15 +19,15 @@ public interface IDbAction
 
 public static class DbQ
 {
-    static string dbName = "DataTable.accdb";
+    static string dbName = "wsDatabase.accdb";
 
     static string dbPath = HttpContext.Current.Server.MapPath("~\\App_Data\\" + dbName);
     
    // static string provider = "Microsoft.Jet.OLEDB.4.0";
-    static string provider = "Microsoft.ACE.OLEDB.16.0";
+    static string provider = "Microsoft.ACE.OLEDB.12.0";
 
     //Connection string for Access DB
-    static string connectionString = string.Format("Provider={1};Data Source={0};Persist Security Info=False;", dbPath, provider);
+    static string connectionString = string.Format("Data Source={0};Provider={1}", dbPath, provider);
 
 
     /// <summary>

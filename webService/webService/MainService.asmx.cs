@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -44,7 +45,7 @@ namespace webService
         [WebMethod]
         public int UserAdd(MyUser newUser)
         {
-            return newUser.Update();
+            return newUser.AddNew();
         }
 
         /// <summary>
@@ -138,6 +139,7 @@ namespace webService
         {
             return itemToDelete.Delete();
         }
+
 
         /// <summary>
         /// gets all the food items
