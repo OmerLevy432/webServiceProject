@@ -92,6 +92,17 @@ namespace webService
             return MyUser.GetUsersList();
         }
 
+        /// <summary>
+        /// gets a user by the email, used so there wont be multiple users with the same email
+        /// </summary>
+        /// <param name="userEmail"> the email of the user</param>
+        /// <returns></returns>
+        [WebMethod]
+        public MyUser GetUserWithEmail(string userEmail)
+        {
+            return MyUser.GetUserByEmail(userEmail);
+        }
+
         #endregion
 
         #region foodItems

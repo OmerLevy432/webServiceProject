@@ -27,7 +27,7 @@ namespace webService.App_Code
             this.RoleId = roleId;
             this.Init();
         }
-        private int Init()
+        public int Init()
         {
             // create string query and execute it
             string query = string.Format("select * from roles where roleId = {0}", this.RoleId);

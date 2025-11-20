@@ -10,7 +10,7 @@
             <!-- link to orders history  -->
            <%#Eval("UserId")%>) 
             <%#Eval("UserName") %> - Email : <%#Eval("UserEmail") %>, Password : <%#Eval("UserPassword") %>,
-            Role ID : <%#Eval("RoleTag")%> 
+            Role ID : <%#Eval("RoleTag.RoleTag")%> 
             <br />
             <a href='userPurchaseHistory.aspx?userId=<%# Eval("UserId") %>'>View Purchases</a>
 

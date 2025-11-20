@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="addUser.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="updateUser.aspx" />
     <Content Include="UserList.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,14 +81,6 @@
     </Content>
     <None Include="Web References\MyWs\MainService.disco" />
     <Content Include="Web.config" />
-    <None Include="Web References\MyWs\MainService.wsdl" />
-    <Content Include="Web References\MyWs\MyUser.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
-    <Content Include="Web References\MyWs\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addUser.aspx.cs">
@@ -117,6 +110,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="updateUser.aspx.cs">
+      <DependentUpon>updateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateUser.aspx.designer.cs">
+      <DependentUpon>updateUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -140,6 +140,14 @@
   <ItemGroup>
     <Content Include="adminMaster.Master" />
     <None Include="packages.config" />
+    <None Include="Web References\MyWs\MainService.wsdl" />
+    <Content Include="Web References\MyWs\MyUser.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\MyWs\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

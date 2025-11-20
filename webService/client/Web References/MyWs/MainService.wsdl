@@ -45,7 +45,6 @@
       <s:complexType name="Orders">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="OrderDate" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="OrderList" type="tns:ArrayOfOrderedItems" />
         </s:sequence>
       </s:complexType>
@@ -59,6 +58,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="OrderId" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="FoodItems" type="tns:ArrayOfFoodItem" />
           <s:element minOccurs="0" maxOccurs="1" name="FoodAmounts" type="tns:ArrayOfInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDate" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfFoodItem">
@@ -150,6 +150,20 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="MyUser" nillable="true" type="tns:MyUser" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetUserWithEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserWithEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserWithEmailResult" type="tns:MyUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="FoodItemGet">
         <s:complexType>
           <s:sequence>
@@ -274,6 +288,12 @@
   <wsdl:message name="GetAllUsersSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="GetUserWithEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserWithEmail" />
+  </wsdl:message>
+  <wsdl:message name="GetUserWithEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserWithEmailResponse" />
+  </wsdl:message>
   <wsdl:message name="FoodItemGetSoapIn">
     <wsdl:part name="parameters" element="tns:FoodItemGet" />
   </wsdl:message>
@@ -338,6 +358,10 @@
     <wsdl:operation name="GetAllUsers">
       <wsdl:input message="tns:GetAllUsersSoapIn" />
       <wsdl:output message="tns:GetAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWithEmail">
+      <wsdl:input message="tns:GetUserWithEmailSoapIn" />
+      <wsdl:output message="tns:GetUserWithEmailSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="FoodItemGet">
       <wsdl:input message="tns:FoodItemGetSoapIn" />
@@ -422,6 +446,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <soap:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWithEmail">
+      <soap:operation soapAction="http://tempuri.org/GetUserWithEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -542,6 +575,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <soap12:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserWithEmail">
+      <soap12:operation soapAction="http://tempuri.org/GetUserWithEmail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

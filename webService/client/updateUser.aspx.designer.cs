@@ -11,8 +11,26 @@ namespace client
 {
 
 
-    public partial class addUser
+    public partial class updateUser
     {
+
+        /// <summary>
+        /// UserIdBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UserIdBox;
+
+        /// <summary>
+        /// GetUserButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button GetUserButton;
 
         /// <summary>
         /// UsernameBox control.
@@ -51,12 +69,12 @@ namespace client
         protected global::System.Web.UI.WebControls.TextBox RoleIdBox;
 
         /// <summary>
-        /// AddUserButton control.
+        /// UpdateUserButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddUserButton;
+        protected global::System.Web.UI.WebControls.Button UpdateUserButton;
     }
 }

@@ -127,5 +127,19 @@ namespace webService.App_Code
             return userList;
         }
 
+        // gets user by email
+        public static MyUser GetUserByEmail(string userEmail)
+        {
+            // retrive user from database 
+            string query = string.Format("select userId from users where userEmail='{0}'", userEmail);
+            DataSet userTable = DbQ.ExecuteQuery(query);
+
+            if (userTable.Tables[0].Rows.Count > 0)
+            {
+                int newUserid = int.Parse(userTable.Tables[0].Rows[0]["userId"].ToString());
+                return new MyUser(newUserid);
+            }
+            return null;
+        }
     }
 }

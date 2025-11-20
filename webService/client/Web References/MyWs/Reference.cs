@@ -43,6 +43,8 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback GetAllUsersOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetUserWithEmailOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FoodItemGetOperationCompleted;
         
         private System.Threading.SendOrPostCallback FoodItemAddOperationCompleted;
@@ -113,6 +115,9 @@ namespace client.MyWs {
         
         /// <remarks/>
         public event GetAllUsersCompletedEventHandler GetAllUsersCompleted;
+        
+        /// <remarks/>
+        public event GetUserWithEmailCompletedEventHandler GetUserWithEmailCompleted;
         
         /// <remarks/>
         public event FoodItemGetCompletedEventHandler FoodItemGetCompleted;
@@ -330,6 +335,35 @@ namespace client.MyWs {
             if ((this.GetAllUsersCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetAllUsersCompleted(this, new GetAllUsersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUserWithEmail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public MyUser GetUserWithEmail(string userEmail) {
+            object[] results = this.Invoke("GetUserWithEmail", new object[] {
+                        userEmail});
+            return ((MyUser)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetUserWithEmailAsync(string userEmail) {
+            this.GetUserWithEmailAsync(userEmail, null);
+        }
+        
+        /// <remarks/>
+        public void GetUserWithEmailAsync(string userEmail, object userState) {
+            if ((this.GetUserWithEmailOperationCompleted == null)) {
+                this.GetUserWithEmailOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUserWithEmailOperationCompleted);
+            }
+            this.InvokeAsync("GetUserWithEmail", new object[] {
+                        userEmail}, this.GetUserWithEmailOperationCompleted, userState);
+        }
+        
+        private void OnGetUserWithEmailOperationCompleted(object arg) {
+            if ((this.GetUserWithEmailCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUserWithEmailCompleted(this, new GetUserWithEmailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -697,6 +731,8 @@ namespace client.MyWs {
         
         private int[] foodAmountsField;
         
+        private System.DateTime orderDateField;
+        
         /// <remarks/>
         public int OrderId {
             get {
@@ -726,6 +762,16 @@ namespace client.MyWs {
                 this.foodAmountsField = value;
             }
         }
+        
+        /// <remarks/>
+        public System.DateTime OrderDate {
+            get {
+                return this.orderDateField;
+            }
+            set {
+                this.orderDateField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -738,8 +784,6 @@ namespace client.MyWs {
         
         private int userIdField;
         
-        private System.DateTime orderDateField;
-        
         private OrderedItems[] orderListField;
         
         /// <remarks/>
@@ -749,16 +793,6 @@ namespace client.MyWs {
             }
             set {
                 this.userIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime OrderDate {
-            get {
-                return this.orderDateField;
-            }
-            set {
-                this.orderDateField = value;
             }
         }
         
@@ -951,6 +985,32 @@ namespace client.MyWs {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((MyUser[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GetUserWithEmailCompletedEventHandler(object sender, GetUserWithEmailCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUserWithEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetUserWithEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public MyUser Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((MyUser)(this.results[0]));
             }
         }
     }
