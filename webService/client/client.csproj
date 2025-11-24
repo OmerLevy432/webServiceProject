@@ -67,15 +67,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="addUser.aspx" />
+    <Content Include="userPages\addUser.aspx" />
     <Content Include="default.aspx" />
-    <Content Include="updateUser.aspx" />
-    <Content Include="UserList.aspx" />
+    <Content Include="userPages\updateUser.aspx" />
+    <Content Include="userPages\UserList.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="userPurchaseHistory.aspx" />
+    <Content Include="userPages\userPurchaseHistory.aspx" />
     <Content Include="Web References\MyWs\FoodItem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -83,11 +83,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addUser.aspx.cs">
+    <Compile Include="userPages\addUser.aspx.cs">
       <DependentUpon>addUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="addUser.aspx.designer.cs">
+    <Compile Include="userPages\addUser.aspx.designer.cs">
       <DependentUpon>addUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminMaster.Master.cs">
@@ -110,25 +110,25 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="updateUser.aspx.cs">
+    <Compile Include="userPages\updateUser.aspx.cs">
       <DependentUpon>updateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="updateUser.aspx.designer.cs">
+    <Compile Include="userPages\updateUser.aspx.designer.cs">
       <DependentUpon>updateUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserList.aspx.cs">
+    <Compile Include="userPages\UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserList.aspx.designer.cs">
+    <Compile Include="userPages\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="userPurchaseHistory.aspx.cs">
+    <Compile Include="userPages\userPurchaseHistory.aspx.cs">
       <DependentUpon>userPurchaseHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="userPurchaseHistory.aspx.designer.cs">
+    <Compile Include="userPages\userPurchaseHistory.aspx.designer.cs">
       <DependentUpon>userPurchaseHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\MyWs\Reference.cs">
