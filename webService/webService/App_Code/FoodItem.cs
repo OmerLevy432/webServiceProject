@@ -10,7 +10,7 @@ namespace webService.App_Code
     public class FoodItem : IDbAction
     {
         // define getters and setters
-        public int ItemId { get; }
+        public int ItemId { get; set; }
         public double ItemPrice { get; set; }
         public string ItemDescription { get; set; }
         public int UserId { get; set; }
@@ -116,6 +116,7 @@ namespace webService.App_Code
         public static List<FoodItem> GetItemsList()
         {
             List<FoodItem> foodItemList = new List<FoodItem>();
+            FoodItem currentItem;
             int newItemId = 0;
             int i = 0;
             int amountOfItems = 0;
@@ -129,7 +130,8 @@ namespace webService.App_Code
             for (i = 0; i < amountOfItems; i++)
             {
                 newItemId = int.Parse(itemsTable.Tables[0].Rows[i]["itemId"].ToString());
-                foodItemList.Add(new FoodItem(newItemId));
+                currentItem = new FoodItem(newItemId);  
+                foodItemList.Add(currentItem);
             }
 
             return foodItemList;

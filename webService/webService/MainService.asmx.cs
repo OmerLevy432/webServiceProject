@@ -19,12 +19,6 @@ namespace webService
     public class MainService : System.Web.Services.WebService
     {
 
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
-
         #region UserRegion
         /// <summary>
         /// gets user from the database 
@@ -171,6 +165,17 @@ namespace webService
         public List<FoodItem> GetFoodItemsOfCreator(int userId)
         {
             return FoodItem.GetItemByCreator(userId);
+        }
+
+        /// <summary>
+        /// gets the food item by its id
+        /// </summary>
+        /// <param name="id">food item id</param>
+        /// <returns>FoodItem object</returns>
+        [WebMethod]
+        public FoodItem GetFoodItemById(int id)
+        {
+            return new FoodItem(id);
         }
 
         #endregion
