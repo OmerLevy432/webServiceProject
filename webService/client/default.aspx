@@ -3,9 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Admin</h1>
-    <a href="userPages/UserList.aspx">UserList.aspx</a>
+    <a href="userPages/UserList.aspx">User List</a>
     <br />
-    <a href="userPages/AddUser.aspx">Add user</a>
+    <a href="userPages/AddUser.aspx">Add User</a>
     <br />
-    <a href="userPages/UpdateUser.aspx">Update user</a>
+    <a href="userPages/UpdateUser.aspx">Update Lser</a>
+    <br />
+    <a href="FoodPages/FoodList.aspx">Food List</a>
+    <br />
+    <a href="FoodPages/FoodUpdate.aspx">Update Food</a>
+    <br />
+    <a href="FoodPages/FoodAdd.aspx">Add Food</a>
 </asp:Content>

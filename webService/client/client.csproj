@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FoodPages\FoodAdd.aspx" />
+    <Content Include="FoodPages\FoodList.aspx" />
+    <Content Include="FoodPages\FoodUpdate.aspx" />
     <Content Include="userPages\addUser.aspx" />
     <Content Include="default.aspx" />
     <Content Include="userPages\updateUser.aspx" />
@@ -83,6 +86,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodPages\FoodAdd.aspx.cs">
+      <DependentUpon>FoodAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodPages\FoodAdd.aspx.designer.cs">
+      <DependentUpon>FoodAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FoodPages\FoodList.aspx.cs">
+      <DependentUpon>FoodList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodPages\FoodList.aspx.designer.cs">
+      <DependentUpon>FoodList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FoodPages\FoodUpdate.aspx.cs">
+      <DependentUpon>FoodUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FoodPages\FoodUpdate.aspx.designer.cs">
+      <DependentUpon>FoodUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="userPages\addUser.aspx.cs">
       <DependentUpon>addUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

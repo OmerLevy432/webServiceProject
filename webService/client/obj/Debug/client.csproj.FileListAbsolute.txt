@@ -113,6 +113,6 @@ C:\Users\User\Desktop\webServiceProject\webService\client\bin\Microsoft.CodeDom.
 C:\Users\User\Desktop\webServiceProject\webService\client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\User\Desktop\webServiceProject\webService\client\obj\Debug\client.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\webServiceProject\webService\client\obj\Debug\client.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\webServiceProject\webService\client\obj\Debug\client.csproj.CopyComplete
 C:\Users\User\Desktop\webServiceProject\webService\client\obj\Debug\client.dll
 C:\Users\User\Desktop\webServiceProject\webService\client\obj\Debug\client.pdb
+C:\Users\User\Desktop\webServiceProject\webService\client\obj\Debug\client.csproj.Up2Date
