@@ -2,16 +2,6 @@
 <wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="UserGet">
         <s:complexType>
           <s:sequence>
@@ -68,6 +58,7 @@
       </s:complexType>
       <s:complexType name="FoodItem">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="ItemPrice" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" name="ItemDescription" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
@@ -244,14 +235,37 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetFoodItemById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFoodItemByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFoodItemByIdResult" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllRoles">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllRolesResult" type="tns:ArrayOfRoles" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRoles">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Roles" nillable="true" type="tns:Roles" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
-  </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
-  </wsdl:message>
   <wsdl:message name="UserGetSoapIn">
     <wsdl:part name="parameters" element="tns:UserGet" />
   </wsdl:message>
@@ -330,11 +344,19 @@
   <wsdl:message name="GetFoodItemsOfCreatorSoapOut">
     <wsdl:part name="parameters" element="tns:GetFoodItemsOfCreatorResponse" />
   </wsdl:message>
+  <wsdl:message name="GetFoodItemByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFoodItemById" />
+  </wsdl:message>
+  <wsdl:message name="GetFoodItemByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFoodItemByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllRoles" />
+  </wsdl:message>
+  <wsdl:message name="GetAllRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
+  </wsdl:message>
   <wsdl:portType name="MainServiceSoap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="UserGet">
       <wsdl:input message="tns:UserGetSoapIn" />
       <wsdl:output message="tns:UserGetSoapOut" />
@@ -387,18 +409,17 @@
       <wsdl:input message="tns:GetFoodItemsOfCreatorSoapIn" />
       <wsdl:output message="tns:GetFoodItemsOfCreatorSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetFoodItemById">
+      <wsdl:input message="tns:GetFoodItemByIdSoapIn" />
+      <wsdl:output message="tns:GetFoodItemByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <wsdl:input message="tns:GetAllRolesSoapIn" />
+      <wsdl:output message="tns:GetAllRolesSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MainServiceSoap" type="tns:MainServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="UserGet">
       <soap:operation soapAction="http://tempuri.org/UserGet" style="document" />
       <wsdl:input>
@@ -516,18 +537,27 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetFoodItemById">
+      <soap:operation soapAction="http://tempuri.org/GetFoodItemById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap:operation soapAction="http://tempuri.org/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="MainServiceSoap12" type="tns:MainServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="UserGet">
       <soap12:operation soapAction="http://tempuri.org/UserGet" style="document" />
       <wsdl:input>
@@ -638,6 +668,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetFoodItemsOfCreator">
       <soap12:operation soapAction="http://tempuri.org/GetFoodItemsOfCreator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFoodItemById">
+      <soap12:operation soapAction="http://tempuri.org/GetFoodItemById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRoles">
+      <soap12:operation soapAction="http://tempuri.org/GetAllRoles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

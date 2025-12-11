@@ -15,22 +15,13 @@ namespace client
     {
 
         /// <summary>
-        /// UserIdBox control.
+        /// UserIdLiteral control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserIdBox;
-
-        /// <summary>
-        /// GetUserButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GetUserButton;
+        protected global::System.Web.UI.WebControls.Literal UserIdLiteral;
 
         /// <summary>
         /// UsernameBox control.
@@ -60,13 +51,13 @@ namespace client
         protected global::System.Web.UI.WebControls.TextBox EmailBox;
 
         /// <summary>
-        /// RoleIdBox control.
+        /// DDLRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RoleIdBox;
+        protected global::System.Web.UI.WebControls.DropDownList DDLRole;
 
         /// <summary>
         /// UpdateUserButton control.

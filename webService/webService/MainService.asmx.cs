@@ -179,5 +179,17 @@ namespace webService
         }
 
         #endregion
+
+        #region Roles
+        /// <summary>
+        /// gets all the roles from the db
+        /// </summary>
+        /// <returns>list of roles</returns>
+        [WebMethod]
+        public List<Roles> GetAllRoles()
+        {
+            return Roles.GetRoles();
+        }
+        #endregion
     }
 }

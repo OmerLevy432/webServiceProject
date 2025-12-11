@@ -9,6 +9,10 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <a href="default.aspx">default </a>
+<%--    <a href="~/FoodPages/FoodList.aspx">Food </a>
+    <a href="~/userPages/UserList.aspx">user </a>--%>
+    <hr />
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

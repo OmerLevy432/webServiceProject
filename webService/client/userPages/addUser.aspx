@@ -6,6 +6,6 @@
     Username: <asp:TextBox ID="UsernameBox" runat="server"></asp:TextBox> <br />
     Password: <asp:TextBox ID="PasswordBox" runat="server"></asp:TextBox> <br />
     Email: <asp:TextBox ID="EmailBox" runat="server"></asp:TextBox> <br />
-    RoleId: <asp:TextBox ID="RoleIdBox" runat="server"></asp:TextBox> <br />
+    Role:  <asp:DropDownList ID="DDLRole" runat="server"></asp:DropDownList>
     <asp:Button ID="AddUserButton" runat="server" Text="Add" OnClick="AddUserButton_Click"/>
 </asp:Content>

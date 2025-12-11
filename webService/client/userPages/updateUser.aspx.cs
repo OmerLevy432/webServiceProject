@@ -15,25 +15,27 @@ namespace client
         protected void Page_Load(object sender, EventArgs e)
         {
             service = new MyWs.MainService();
-            user = new MyWs.MyUser();
-        }
-
-        protected void GetUserButton_Click(object sender, EventArgs e)
-        {
-            try
+            if (!IsPostBack)
             {
-                // load the data into the text box when the get data button is pressed
-                user = service.UserGet(int.Parse(UserIdBox.Text));
+                int userId;
 
-                UsernameBox.Text = user.UserName;
-                EmailBox.Text = user.UserEmail;
-                PasswordBox.Text = user.UserPassword;
-                RoleIdBox.Text = user.RoleTag.RoleId.ToString();
-            }
-            catch (Exception)
-            {
+                // try to parse the userId
+                if (int.TryParse(Request.QueryString["userId"], out userId))
+                {
+                    MyWs.MyUser user = service.UserGet(userId);
+                    UsernameBox.Text = user.UserName;
+                    EmailBox.Text = user.UserEmail;
+                    PasswordBox.Text = user.UserPassword;
+                    UserIdLiteral.Text = user.UserId.ToString();
 
-                return;
+                    // load the roles
+                    DDLRole.DataSource = service.GetAllRoles();
+                    DDLRole.DataTextField = "RoleTag";
+                    DDLRole.DataValueField = "RoleId";
+                    DDLRole.DataBind();
+
+                    DDLRole.SelectedValue = user.RoleTag.RoleId.ToString();
+                }
             }
         }
 
@@ -41,16 +43,21 @@ namespace client
         {
             try
             {
+                user = new MyWs.MyUser();
+
                 // load the current values into the user
-                user.UserId = int.Parse(UserIdBox.Text);
+                user.UserId = int.Parse(UserIdLiteral.Text);
                 user.UserName = UsernameBox.Text;
                 user.UserEmail = EmailBox.Text;
                 user.UserPassword = PasswordBox.Text;
                 user.RoleTag = new MyWs.Roles();
-                user.RoleTag.RoleId = int.Parse(RoleIdBox.Text);
+                user.RoleTag.RoleId = int.Parse(DDLRole.SelectedValue.ToString());
 
-                // update the user in the database
-                service.UserUpdate(user);
+                // checks if the update was successful
+                if (service.UserUpdate(user) != -1)
+                {
+                    Response.Redirect("UserList.aspx");
+                }
             }
             catch (Exception)
             {

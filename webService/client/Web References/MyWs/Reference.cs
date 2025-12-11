@@ -57,6 +57,8 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback GetFoodItemByIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetAllRolesOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -136,6 +138,9 @@ namespace client.MyWs {
         
         /// <remarks/>
         public event GetFoodItemByIdCompletedEventHandler GetFoodItemByIdCompleted;
+        
+        /// <remarks/>
+        public event GetAllRolesCompletedEventHandler GetAllRolesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UserGet", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -538,6 +543,33 @@ namespace client.MyWs {
             if ((this.GetFoodItemByIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetFoodItemByIdCompleted(this, new GetFoodItemByIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllRoles", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Roles[] GetAllRoles() {
+            object[] results = this.Invoke("GetAllRoles", new object[0]);
+            return ((Roles[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllRolesAsync() {
+            this.GetAllRolesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllRolesAsync(object userState) {
+            if ((this.GetAllRolesOperationCompleted == null)) {
+                this.GetAllRolesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllRolesOperationCompleted);
+            }
+            this.InvokeAsync("GetAllRoles", new object[0], this.GetAllRolesOperationCompleted, userState);
+        }
+        
+        private void OnGetAllRolesOperationCompleted(object arg) {
+            if ((this.GetAllRolesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllRolesCompleted(this, new GetAllRolesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1181,6 +1213,32 @@ namespace client.MyWs {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((FoodItem)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void GetAllRolesCompletedEventHandler(object sender, GetAllRolesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllRolesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllRolesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Roles[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Roles[])(this.results[0]));
             }
         }
     }

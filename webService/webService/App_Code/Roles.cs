@@ -43,5 +43,30 @@ namespace webService.App_Code
             // return -1 for not finding a role by his id
             return -1;
         }
+        public static List<Roles> GetRoles()
+        {
+            int amountOfRoles = 0;
+            int i = 0;
+            int newRoleId = 0;
+            string query = string.Format("select roleId from roles");
+            DataSet rolesTable = DbQ.ExecuteQuery(query);
+            List<Roles> roles = new List<Roles>();
+
+            // if there are roles
+            amountOfRoles = rolesTable.Tables[0].Rows.Count;
+
+            for (i = 0; i < amountOfRoles; i++)
+            {
+                newRoleId = int.Parse(rolesTable.Tables[0].Rows[i]["roleId"].ToString());
+                roles.Add(new Roles(newRoleId));
+            }
+
+            return roles;
+        }
+
+        public static Roles GetRoleById(int roleId)
+        {
+            return new Roles(roleId);
+        }
     }
 }

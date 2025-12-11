@@ -5,8 +5,6 @@
     <h1>Admin</h1>
     <a href="userPages/UserList.aspx">User List</a>
     <br />
-    <a href="userPages/AddUser.aspx">Add User</a>
-    <br />
     <a href="userPages/UpdateUser.aspx">Update Lser</a>
     <br />
     <a href="FoodPages/FoodList.aspx">Food List</a>
