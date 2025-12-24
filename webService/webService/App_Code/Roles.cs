@@ -14,7 +14,7 @@ namespace webService.App_Code
     im not interested in a program changing the current values in the roles data base
     i want to limit the program to only access it
      */
-    public class Roles
+    public class Roles : IDbAction
     {
         // define getters and setters
         public int RoleId { get; set; }
@@ -43,6 +43,23 @@ namespace webService.App_Code
             // return -1 for not finding a role by his id
             return -1;
         }
+        public int AddNew()
+        {
+            string query = string.Format("insert into roles (roleId, roleTag) values ('{0}','{1}')", this.RoleId, this.RoleTag);
+            return DbQ.ExecuteNonQuery(query);
+        }
+
+        public int Update()
+        {
+            string query = string.Format("update roles set roleTag='{1}' where roleId={0};", this.RoleId, this.RoleTag);
+            return DbQ.ExecuteNonQuery(query);
+        }
+        public int Delete()
+        {
+            string query = string.Format("delete from roles where roleId={0}", this.RoleId);
+            return DbQ.ExecuteNonQuery(query);
+        }
+
         public static List<Roles> GetRoles()
         {
             int amountOfRoles = 0;

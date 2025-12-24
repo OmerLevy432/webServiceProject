@@ -190,6 +190,29 @@ namespace webService
         {
             return Roles.GetRoles();
         }
+
+        /// <summary>
+        /// gets a role from a given role id
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns>Roles object of the role</returns>
+        [WebMethod]
+        public Roles GetRoleFromId(int roleId)
+        {
+            return Roles.GetRoleById(roleId);
+        }
+
+        [WebMethod]
+        public int RoleUpdate(Roles role)
+        {
+            return role.Update();
+        }
+
+        [WebMethod]
+        public int RoleAdd(Roles role)
+        {
+            return role.AddNew();
+        }
         #endregion
     }
 }

@@ -24,7 +24,11 @@ namespace client.FoodPages
             foodItem.ItemDescription = DescriptionBox.Text;
             foodItem.ItemPrice = double.Parse(PriceBox.Text);
             foodItem.UserId = int.Parse(CreatorIdBox.Text);
-            service.FoodItemAdd(foodItem);
+
+            if (service.FoodItemAdd(foodItem) != -1)
+            {
+                Response.Redirect("FoodList.aspx");
+            }
         }
     }
 }

@@ -59,6 +59,12 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback GetAllRolesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetRoleFromIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RoleUpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RoleAddOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -141,6 +147,15 @@ namespace client.MyWs {
         
         /// <remarks/>
         public event GetAllRolesCompletedEventHandler GetAllRolesCompleted;
+        
+        /// <remarks/>
+        public event GetRoleFromIdCompletedEventHandler GetRoleFromIdCompleted;
+        
+        /// <remarks/>
+        public event RoleUpdateCompletedEventHandler RoleUpdateCompleted;
+        
+        /// <remarks/>
+        public event RoleAddCompletedEventHandler RoleAddCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UserGet", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -570,6 +585,93 @@ namespace client.MyWs {
             if ((this.GetAllRolesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetAllRolesCompleted(this, new GetAllRolesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetRoleFromId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Roles GetRoleFromId(int roleId) {
+            object[] results = this.Invoke("GetRoleFromId", new object[] {
+                        roleId});
+            return ((Roles)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetRoleFromIdAsync(int roleId) {
+            this.GetRoleFromIdAsync(roleId, null);
+        }
+        
+        /// <remarks/>
+        public void GetRoleFromIdAsync(int roleId, object userState) {
+            if ((this.GetRoleFromIdOperationCompleted == null)) {
+                this.GetRoleFromIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetRoleFromIdOperationCompleted);
+            }
+            this.InvokeAsync("GetRoleFromId", new object[] {
+                        roleId}, this.GetRoleFromIdOperationCompleted, userState);
+        }
+        
+        private void OnGetRoleFromIdOperationCompleted(object arg) {
+            if ((this.GetRoleFromIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetRoleFromIdCompleted(this, new GetRoleFromIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RoleUpdate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int RoleUpdate(Roles role) {
+            object[] results = this.Invoke("RoleUpdate", new object[] {
+                        role});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RoleUpdateAsync(Roles role) {
+            this.RoleUpdateAsync(role, null);
+        }
+        
+        /// <remarks/>
+        public void RoleUpdateAsync(Roles role, object userState) {
+            if ((this.RoleUpdateOperationCompleted == null)) {
+                this.RoleUpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRoleUpdateOperationCompleted);
+            }
+            this.InvokeAsync("RoleUpdate", new object[] {
+                        role}, this.RoleUpdateOperationCompleted, userState);
+        }
+        
+        private void OnRoleUpdateOperationCompleted(object arg) {
+            if ((this.RoleUpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RoleUpdateCompleted(this, new RoleUpdateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RoleAdd", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int RoleAdd(Roles role) {
+            object[] results = this.Invoke("RoleAdd", new object[] {
+                        role});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RoleAddAsync(Roles role) {
+            this.RoleAddAsync(role, null);
+        }
+        
+        /// <remarks/>
+        public void RoleAddAsync(Roles role, object userState) {
+            if ((this.RoleAddOperationCompleted == null)) {
+                this.RoleAddOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRoleAddOperationCompleted);
+            }
+            this.InvokeAsync("RoleAdd", new object[] {
+                        role}, this.RoleAddOperationCompleted, userState);
+        }
+        
+        private void OnRoleAddOperationCompleted(object arg) {
+            if ((this.RoleAddCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RoleAddCompleted(this, new RoleAddCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1239,6 +1341,84 @@ namespace client.MyWs {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Roles[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void GetRoleFromIdCompletedEventHandler(object sender, GetRoleFromIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetRoleFromIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetRoleFromIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Roles Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Roles)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void RoleUpdateCompletedEventHandler(object sender, RoleUpdateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RoleUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RoleUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void RoleAddCompletedEventHandler(object sender, RoleAddCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RoleAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RoleAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

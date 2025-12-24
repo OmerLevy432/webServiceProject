@@ -4,12 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Admin</h1>
     <a href="userPages/UserList.aspx">User List</a>
-    <br />
-    <a href="userPages/UpdateUser.aspx">Update Lser</a>
-    <br />
+    <br />   
     <a href="FoodPages/FoodList.aspx">Food List</a>
-    <br />
-    <a href="FoodPages/FoodUpdate.aspx">Update Food</a>
-    <br />
-    <a href="FoodPages/FoodAdd.aspx">Add Food</a>
+    <br />    
+    <a href="rolePages/RoleList.aspx">Role List</a>
 </asp:Content>

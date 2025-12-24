@@ -15,6 +15,21 @@ namespace client.FoodPages
         {
             service = new MyWs.MainService();
             foodItem = new MyWs.FoodItem();
+
+            if (!IsPostBack)
+            {
+                int itemId;
+
+                // try to parse the item id
+                if (int.TryParse(Request.QueryString["itemId"], out itemId))
+                {
+                    foodItem = service.GetFoodItemById(itemId);
+                    ItemCreatorIdBox.Text = foodItem.UserId.ToString();
+                    ItemIdBox.Text = foodItem.ItemId.ToString();
+                    ItemPriceBox.Text = foodItem.ItemPrice.ToString();
+                    ItemDescriptionBox.Text = foodItem.ItemDescription;
+                }
+            }
         }
 
         protected void UpdateFoodButtonClick(object sender, EventArgs e)
@@ -27,27 +42,11 @@ namespace client.FoodPages
                 foodItem.ItemDescription = ItemDescriptionBox.Text;
                 foodItem.ItemId = int.Parse(ItemIdBox.Text);
 
-                // update the user in the database
-                service.FoodItemUpdate(foodItem);
-            }
-            catch (Exception)
-            {
-
-                return;
-            }
-        }
-
-        protected void GetFoodItemClick(object sender, EventArgs e)
-        {
-            try
-            {
-                // load the data into the text box when the get data button is pressed
-                foodItem = service.GetFoodItemById(int.Parse(ItemIdBox.Text));
-
-                ItemPriceBox.Text = foodItem.ItemPrice.ToString();
-                ItemDescriptionBox.Text = foodItem.ItemDescription;
-                ItemIdBox.Text = foodItem.ItemId.ToString();
-                ItemCreatorIdBox.Text = foodItem.UserId.ToString();
+                // update the food in the database
+                if (service.FoodItemUpdate(foodItem) != -1)
+                {
+                    Response.Redirect("FoodList.aspx");
+                }
             }
             catch (Exception)
             {

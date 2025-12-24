@@ -70,6 +70,9 @@
     <Content Include="FoodPages\FoodAdd.aspx" />
     <Content Include="FoodPages\FoodList.aspx" />
     <Content Include="FoodPages\FoodUpdate.aspx" />
+    <Content Include="rolePages\RoleAdd.aspx" />
+    <Content Include="rolePages\RoleList.aspx" />
+    <Content Include="rolePages\RoleUpdate.aspx" />
     <Content Include="userPages\addUser.aspx" />
     <Content Include="default.aspx" />
     <Content Include="userPages\updateUser.aspx" />
@@ -106,6 +109,27 @@
     </Compile>
     <Compile Include="FoodPages\FoodUpdate.aspx.designer.cs">
       <DependentUpon>FoodUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rolePages\RoleAdd.aspx.cs">
+      <DependentUpon>RoleAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rolePages\RoleAdd.aspx.designer.cs">
+      <DependentUpon>RoleAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rolePages\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rolePages\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rolePages\RoleUpdate.aspx.cs">
+      <DependentUpon>RoleUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rolePages\RoleUpdate.aspx.designer.cs">
+      <DependentUpon>RoleUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="userPages\addUser.aspx.cs">
       <DependentUpon>addUser.aspx</DependentUpon>

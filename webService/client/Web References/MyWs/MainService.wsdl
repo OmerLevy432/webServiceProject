@@ -264,6 +264,48 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Roles" nillable="true" type="tns:Roles" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetRoleFromId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="roleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleFromIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleFromIdResult" type="tns:Roles" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="tns:Roles" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleAdd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="tns:Roles" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RoleAddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RoleAddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="UserGetSoapIn">
@@ -356,6 +398,24 @@
   <wsdl:message name="GetAllRolesSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllRolesResponse" />
   </wsdl:message>
+  <wsdl:message name="GetRoleFromIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleFromId" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleFromIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleFromIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="RoleUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:RoleUpdate" />
+  </wsdl:message>
+  <wsdl:message name="RoleUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:RoleUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RoleAddSoapIn">
+    <wsdl:part name="parameters" element="tns:RoleAdd" />
+  </wsdl:message>
+  <wsdl:message name="RoleAddSoapOut">
+    <wsdl:part name="parameters" element="tns:RoleAddResponse" />
+  </wsdl:message>
   <wsdl:portType name="MainServiceSoap">
     <wsdl:operation name="UserGet">
       <wsdl:input message="tns:UserGetSoapIn" />
@@ -416,6 +476,18 @@
     <wsdl:operation name="GetAllRoles">
       <wsdl:input message="tns:GetAllRolesSoapIn" />
       <wsdl:output message="tns:GetAllRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleFromId">
+      <wsdl:input message="tns:GetRoleFromIdSoapIn" />
+      <wsdl:output message="tns:GetRoleFromIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleUpdate">
+      <wsdl:input message="tns:RoleUpdateSoapIn" />
+      <wsdl:output message="tns:RoleUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RoleAdd">
+      <wsdl:input message="tns:RoleAddSoapIn" />
+      <wsdl:output message="tns:RoleAddSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MainServiceSoap" type="tns:MainServiceSoap">
@@ -555,6 +627,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetRoleFromId">
+      <soap:operation soapAction="http://tempuri.org/GetRoleFromId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleUpdate">
+      <soap:operation soapAction="http://tempuri.org/RoleUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleAdd">
+      <soap:operation soapAction="http://tempuri.org/RoleAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="MainServiceSoap12" type="tns:MainServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -686,6 +785,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllRoles">
       <soap12:operation soapAction="http://tempuri.org/GetAllRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleFromId">
+      <soap12:operation soapAction="http://tempuri.org/GetRoleFromId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleUpdate">
+      <soap12:operation soapAction="http://tempuri.org/RoleUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RoleAdd">
+      <soap12:operation soapAction="http://tempuri.org/RoleAdd" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

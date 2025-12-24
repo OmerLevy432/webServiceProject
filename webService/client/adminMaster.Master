@@ -9,7 +9,6 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <a href="default.aspx">default </a>
 <%--    <a href="~/FoodPages/FoodList.aspx">Food </a>
     <a href="~/userPages/UserList.aspx">user </a>--%>
     <hr />
