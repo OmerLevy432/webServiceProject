@@ -81,7 +81,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="userPages\userPurchaseHistory.aspx" />
+    <Content Include="userPages\UserProfile.aspx" />
     <Content Include="Web References\MyWs\FoodItem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -172,12 +172,12 @@
     <Compile Include="userPages\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="userPages\userPurchaseHistory.aspx.cs">
-      <DependentUpon>userPurchaseHistory.aspx</DependentUpon>
+    <Compile Include="userPages\UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="userPages\userPurchaseHistory.aspx.designer.cs">
-      <DependentUpon>userPurchaseHistory.aspx</DependentUpon>
+    <Compile Include="userPages\UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\MyWs\Reference.cs">
       <AutoGen>True</AutoGen>

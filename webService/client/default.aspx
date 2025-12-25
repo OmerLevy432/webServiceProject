@@ -2,10 +2,4 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Admin</h1>
-    <a href="userPages/UserList.aspx">User List</a>
-    <br />   
-    <a href="FoodPages/FoodList.aspx">Food List</a>
-    <br />    
-    <a href="rolePages/RoleList.aspx">Role List</a>
 </asp:Content>

@@ -7,12 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace client
+namespace client.userPages
 {
 
 
-    public partial class userPurchaseHistory
+    public partial class UserProfile
     {
+
+        /// <summary>
+        /// userRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater userRepeater;
 
         /// <summary>
         /// repeaterPurchases control.
