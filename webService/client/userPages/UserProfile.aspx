@@ -52,4 +52,6 @@
          </SeparatorTemplate>
 
      </asp:Repeater>
+
+    <asp:Label ID="noOrdersLable" runat="server" Text=""></asp:Label>
 </asp:Content>

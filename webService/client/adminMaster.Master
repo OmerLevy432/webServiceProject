@@ -17,9 +17,10 @@
     <form id="form1" runat="server">
         <div>
             <nav>
-                <a href=Users/User/Desktop/webServiceProject/webService/client/userPages/UserList.aspx>User List</a>
-                <a href="Users/User/Desktop/webServiceProject/webService/client/FoodPages/FoodList.html">Food List</a>
-                <a href="Users/User/Desktop/webServiceProject/webService/client/rolePages/RoleList.html">Role List</a>
+                <a href="<%= ResolveUrl("~/userPages/UserList.aspx") %>">User List</a>
+                <a href="<%= ResolveUrl("~/rolePages/RoleList.aspx") %>">Food List</a>
+                <a href="<%= ResolveUrl("~/rolePages/RoleList.aspx") %>">Role List</a>
+                <a href="<%= ResolveUrl("~/default.aspx") %>">Home</a>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

@@ -24,7 +24,7 @@ namespace client.rolePages
                 if (int.TryParse(Request.QueryString["RoleId"], out roleId))
                 {
                     role = service.GetRoleFromId(roleId);
-                    RoleIdBox.Text = role.RoleId.ToString();
+                    RoleIdLabel.Text = role.RoleId.ToString();
                     RoleTagBox.Text = role.RoleTag;
                 }
             }
@@ -35,7 +35,7 @@ namespace client.rolePages
             try
             {
                 // load the current values into the user
-                role.RoleId = int.Parse(RoleIdBox.Text);
+                role.RoleId = int.Parse(RoleIdLabel.Text);
                 role.RoleTag = RoleTagBox.Text;
 
                 // update the role in the database

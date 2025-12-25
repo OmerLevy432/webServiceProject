@@ -24,10 +24,18 @@ namespace client.userPages
                 {
                     MyWs.MyUser user = service.UserGet(userId);
 
-                    repeaterPurchases.DataSource = user.OrderHistory.OrderList;
-                    repeaterPurchases.DataBind();
+                    // check if the user has purchase history
+                    if (user.OrderHistory.OrderList.Length > 0)
+                    {
+                        repeaterPurchases.DataSource = user.OrderHistory.OrderList;
+                        repeaterPurchases.DataBind();
+                    }
+                    else
+                    {
+                        noOrdersLable.Text = "No orders yet...";
+                    }
 
-                    presentUserInformatiom(user);
+                        presentUserInformatiom(user);
                 }
             }
         }
