@@ -75,6 +75,8 @@
     <Content Include="rolePages\RoleUpdate.aspx" />
     <Content Include="userPages\addUser.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="userPages\chooseOrderUser.aspx" />
+    <Content Include="userPages\OrderFood.aspx" />
     <Content Include="userPages\updateUser.aspx" />
     <Content Include="userPages\UserList.aspx" />
     <None Include="Properties\Settings.settings">
@@ -157,6 +159,20 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="userPages\chooseOrderUser.aspx.cs">
+      <DependentUpon>chooseOrderUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\chooseOrderUser.aspx.designer.cs">
+      <DependentUpon>chooseOrderUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userPages\OrderFood.aspx.cs">
+      <DependentUpon>OrderFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\OrderFood.aspx.designer.cs">
+      <DependentUpon>OrderFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="userPages\updateUser.aspx.cs">
       <DependentUpon>updateUser.aspx</DependentUpon>

@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <h1>Food lists</h1> <br />
-<a href="FoodAdd.aspx">Add food item</a> <br />
+<%=addString %>
  
  <asp:Repeater ID="foodRepeater" runat="server">
      <ItemTemplate>
@@ -12,7 +12,7 @@
          Creator ID: <%#Eval("UserId") %> <br />
          Price: <%#Eval("ItemPrice") %> <br />
          Description : <%#Eval("ItemDescription") %>
-        <a href='FoodUpdate.aspx?itemId=<%# Eval("ItemId") %>'>update</a>
+        <%=updateString %>
      </ItemTemplate>
 
      <SeparatorTemplate>
