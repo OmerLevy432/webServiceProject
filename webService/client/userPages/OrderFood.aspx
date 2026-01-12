@@ -6,6 +6,19 @@
     <%=ordersLink %> <br />
 
     Food ID: <asp:TextBox ID="itemIdEntry" runat="server"></asp:TextBox>
-    <asp:Button ID="addFoodToOrder" runat="server" Text="Add" /> <br />
-     <asp:Button ID="SubmitOrder" runat="server" Text="Order" /> <br />
+    <asp:Button ID="addFoodToOrder" runat="server" Text="Add" OnClick="addFoodToOrder_Click" /> <br />
+     <asp:Button ID="SubmitOrder" runat="server" Text="Order" OnClick="SubmitOrder_Click" /> <br />
+
+     <asp:Repeater ID="foodRepeater" runat="server">
+     <ItemTemplate>
+
+         Price: <%#Eval("ItemPrice") %> <br />
+         Description : <%#Eval("ItemDescription") %>
+     </ItemTemplate>
+
+     <SeparatorTemplate>
+         <br />
+     </SeparatorTemplate>
+
+ </asp:Repeater>
 </asp:Content>

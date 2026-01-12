@@ -24,6 +24,12 @@ namespace webService.App_Code
             this.Init();
         }
 
+        // methods
+        public void AddOrder(OrderedItems order)
+        {
+            this.OrderList.Add(order);
+        }
+
         // inits all the orders
         public int Init()
         {

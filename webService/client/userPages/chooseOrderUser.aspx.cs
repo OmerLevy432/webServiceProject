@@ -26,7 +26,7 @@ namespace client.userPages
                 return;
             }
 
-            Response.Redirect(String.Format("OrderFood.aspx?roleId={0}", user.RoleTag.RoleId));
+            Response.Redirect(String.Format("OrderFood.aspx?roleId={0}&userId={1}", user.RoleTag.RoleId, user.UserId));
         }
     }
 }

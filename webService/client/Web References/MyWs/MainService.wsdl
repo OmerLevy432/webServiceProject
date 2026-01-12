@@ -306,6 +306,84 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddItemToOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderedItems" type="tns:OrderedItems" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddItemToOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddOrderToHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderHistory" type="tns:Orders" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:OrderedItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderToHistoryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateOrderedItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderedItems" type="tns:OrderedItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrderedItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateOrderedItemsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:Orders" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateOrdersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderedItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderedItems" type="tns:OrderedItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderedItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddOrderedItemResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:Orders" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddOrdersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="UserGetSoapIn">
@@ -416,6 +494,42 @@
   <wsdl:message name="RoleAddSoapOut">
     <wsdl:part name="parameters" element="tns:RoleAddResponse" />
   </wsdl:message>
+  <wsdl:message name="AddItemToOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:AddItemToOrder" />
+  </wsdl:message>
+  <wsdl:message name="AddItemToOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:AddItemToOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderToHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderToHistory" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderToHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderToHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrderedItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrderedItems" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrderedItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrderedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOrders" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderedItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderedItem" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderedItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderedItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrders" />
+  </wsdl:message>
+  <wsdl:message name="AddOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrdersResponse" />
+  </wsdl:message>
   <wsdl:portType name="MainServiceSoap">
     <wsdl:operation name="UserGet">
       <wsdl:input message="tns:UserGetSoapIn" />
@@ -488,6 +602,30 @@
     <wsdl:operation name="RoleAdd">
       <wsdl:input message="tns:RoleAddSoapIn" />
       <wsdl:output message="tns:RoleAddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToOrder">
+      <wsdl:input message="tns:AddItemToOrderSoapIn" />
+      <wsdl:output message="tns:AddItemToOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderToHistory">
+      <wsdl:input message="tns:AddOrderToHistorySoapIn" />
+      <wsdl:output message="tns:AddOrderToHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderedItems">
+      <wsdl:input message="tns:UpdateOrderedItemsSoapIn" />
+      <wsdl:output message="tns:UpdateOrderedItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrders">
+      <wsdl:input message="tns:UpdateOrdersSoapIn" />
+      <wsdl:output message="tns:UpdateOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderedItem">
+      <wsdl:input message="tns:AddOrderedItemSoapIn" />
+      <wsdl:output message="tns:AddOrderedItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrders">
+      <wsdl:input message="tns:AddOrdersSoapIn" />
+      <wsdl:output message="tns:AddOrdersSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MainServiceSoap" type="tns:MainServiceSoap">
@@ -654,6 +792,60 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddItemToOrder">
+      <soap:operation soapAction="http://tempuri.org/AddItemToOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderToHistory">
+      <soap:operation soapAction="http://tempuri.org/AddOrderToHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderedItems">
+      <soap:operation soapAction="http://tempuri.org/UpdateOrderedItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrders">
+      <soap:operation soapAction="http://tempuri.org/UpdateOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderedItem">
+      <soap:operation soapAction="http://tempuri.org/AddOrderedItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrders">
+      <soap:operation soapAction="http://tempuri.org/AddOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="MainServiceSoap12" type="tns:MainServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -812,6 +1004,60 @@
     </wsdl:operation>
     <wsdl:operation name="RoleAdd">
       <soap12:operation soapAction="http://tempuri.org/RoleAdd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToOrder">
+      <soap12:operation soapAction="http://tempuri.org/AddItemToOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderToHistory">
+      <soap12:operation soapAction="http://tempuri.org/AddOrderToHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderedItems">
+      <soap12:operation soapAction="http://tempuri.org/UpdateOrderedItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrders">
+      <soap12:operation soapAction="http://tempuri.org/UpdateOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderedItem">
+      <soap12:operation soapAction="http://tempuri.org/AddOrderedItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrders">
+      <soap12:operation soapAction="http://tempuri.org/AddOrders" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

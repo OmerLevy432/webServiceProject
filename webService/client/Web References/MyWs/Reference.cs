@@ -65,6 +65,18 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback RoleAddOperationCompleted;
         
+        private System.Threading.SendOrPostCallback AddItemToOrderOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddOrderToHistoryOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateOrderedItemsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateOrdersOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddOrderedItemOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddOrdersOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -156,6 +168,24 @@ namespace client.MyWs {
         
         /// <remarks/>
         public event RoleAddCompletedEventHandler RoleAddCompleted;
+        
+        /// <remarks/>
+        public event AddItemToOrderCompletedEventHandler AddItemToOrderCompleted;
+        
+        /// <remarks/>
+        public event AddOrderToHistoryCompletedEventHandler AddOrderToHistoryCompleted;
+        
+        /// <remarks/>
+        public event UpdateOrderedItemsCompletedEventHandler UpdateOrderedItemsCompleted;
+        
+        /// <remarks/>
+        public event UpdateOrdersCompletedEventHandler UpdateOrdersCompleted;
+        
+        /// <remarks/>
+        public event AddOrderedItemCompletedEventHandler AddOrderedItemCompleted;
+        
+        /// <remarks/>
+        public event AddOrdersCompletedEventHandler AddOrdersCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UserGet", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -672,6 +702,182 @@ namespace client.MyWs {
             if ((this.RoleAddCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.RoleAddCompleted(this, new RoleAddCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddItemToOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddItemToOrder(OrderedItems orderedItems, FoodItem item) {
+            this.Invoke("AddItemToOrder", new object[] {
+                        orderedItems,
+                        item});
+        }
+        
+        /// <remarks/>
+        public void AddItemToOrderAsync(OrderedItems orderedItems, FoodItem item) {
+            this.AddItemToOrderAsync(orderedItems, item, null);
+        }
+        
+        /// <remarks/>
+        public void AddItemToOrderAsync(OrderedItems orderedItems, FoodItem item, object userState) {
+            if ((this.AddItemToOrderOperationCompleted == null)) {
+                this.AddItemToOrderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddItemToOrderOperationCompleted);
+            }
+            this.InvokeAsync("AddItemToOrder", new object[] {
+                        orderedItems,
+                        item}, this.AddItemToOrderOperationCompleted, userState);
+        }
+        
+        private void OnAddItemToOrderOperationCompleted(object arg) {
+            if ((this.AddItemToOrderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddItemToOrderCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrderToHistory", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddOrderToHistory(Orders orderHistory, OrderedItems order) {
+            this.Invoke("AddOrderToHistory", new object[] {
+                        orderHistory,
+                        order});
+        }
+        
+        /// <remarks/>
+        public void AddOrderToHistoryAsync(Orders orderHistory, OrderedItems order) {
+            this.AddOrderToHistoryAsync(orderHistory, order, null);
+        }
+        
+        /// <remarks/>
+        public void AddOrderToHistoryAsync(Orders orderHistory, OrderedItems order, object userState) {
+            if ((this.AddOrderToHistoryOperationCompleted == null)) {
+                this.AddOrderToHistoryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrderToHistoryOperationCompleted);
+            }
+            this.InvokeAsync("AddOrderToHistory", new object[] {
+                        orderHistory,
+                        order}, this.AddOrderToHistoryOperationCompleted, userState);
+        }
+        
+        private void OnAddOrderToHistoryOperationCompleted(object arg) {
+            if ((this.AddOrderToHistoryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddOrderToHistoryCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateOrderedItems", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int UpdateOrderedItems(OrderedItems orderedItems) {
+            object[] results = this.Invoke("UpdateOrderedItems", new object[] {
+                        orderedItems});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateOrderedItemsAsync(OrderedItems orderedItems) {
+            this.UpdateOrderedItemsAsync(orderedItems, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateOrderedItemsAsync(OrderedItems orderedItems, object userState) {
+            if ((this.UpdateOrderedItemsOperationCompleted == null)) {
+                this.UpdateOrderedItemsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateOrderedItemsOperationCompleted);
+            }
+            this.InvokeAsync("UpdateOrderedItems", new object[] {
+                        orderedItems}, this.UpdateOrderedItemsOperationCompleted, userState);
+        }
+        
+        private void OnUpdateOrderedItemsOperationCompleted(object arg) {
+            if ((this.UpdateOrderedItemsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateOrderedItemsCompleted(this, new UpdateOrderedItemsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateOrders", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int UpdateOrders(Orders order) {
+            object[] results = this.Invoke("UpdateOrders", new object[] {
+                        order});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateOrdersAsync(Orders order) {
+            this.UpdateOrdersAsync(order, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateOrdersAsync(Orders order, object userState) {
+            if ((this.UpdateOrdersOperationCompleted == null)) {
+                this.UpdateOrdersOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateOrdersOperationCompleted);
+            }
+            this.InvokeAsync("UpdateOrders", new object[] {
+                        order}, this.UpdateOrdersOperationCompleted, userState);
+        }
+        
+        private void OnUpdateOrdersOperationCompleted(object arg) {
+            if ((this.UpdateOrdersCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateOrdersCompleted(this, new UpdateOrdersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrderedItem", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int AddOrderedItem(OrderedItems orderedItems) {
+            object[] results = this.Invoke("AddOrderedItem", new object[] {
+                        orderedItems});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddOrderedItemAsync(OrderedItems orderedItems) {
+            this.AddOrderedItemAsync(orderedItems, null);
+        }
+        
+        /// <remarks/>
+        public void AddOrderedItemAsync(OrderedItems orderedItems, object userState) {
+            if ((this.AddOrderedItemOperationCompleted == null)) {
+                this.AddOrderedItemOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrderedItemOperationCompleted);
+            }
+            this.InvokeAsync("AddOrderedItem", new object[] {
+                        orderedItems}, this.AddOrderedItemOperationCompleted, userState);
+        }
+        
+        private void OnAddOrderedItemOperationCompleted(object arg) {
+            if ((this.AddOrderedItemCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddOrderedItemCompleted(this, new AddOrderedItemCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrders", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int AddOrders(Orders order) {
+            object[] results = this.Invoke("AddOrders", new object[] {
+                        order});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddOrdersAsync(Orders order) {
+            this.AddOrdersAsync(order, null);
+        }
+        
+        /// <remarks/>
+        public void AddOrdersAsync(Orders order, object userState) {
+            if ((this.AddOrdersOperationCompleted == null)) {
+                this.AddOrdersOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrdersOperationCompleted);
+            }
+            this.InvokeAsync("AddOrders", new object[] {
+                        order}, this.AddOrdersOperationCompleted, userState);
+        }
+        
+        private void OnAddOrdersOperationCompleted(object arg) {
+            if ((this.AddOrdersCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddOrdersCompleted(this, new AddOrdersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1410,6 +1616,118 @@ namespace client.MyWs {
         private object[] results;
         
         internal RoleAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void AddItemToOrderCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void AddOrderToHistoryCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void UpdateOrderedItemsCompletedEventHandler(object sender, UpdateOrderedItemsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateOrderedItemsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateOrderedItemsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void UpdateOrdersCompletedEventHandler(object sender, UpdateOrdersCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateOrdersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateOrdersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void AddOrderedItemCompletedEventHandler(object sender, AddOrderedItemCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddOrderedItemCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddOrderedItemCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void AddOrdersCompletedEventHandler(object sender, AddOrdersCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddOrdersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddOrdersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

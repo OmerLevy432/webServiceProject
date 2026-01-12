@@ -215,5 +215,44 @@ namespace webService
         }
 
         #endregion
+
+        #region orders
+
+        [WebMethod]
+        public void AddItemToOrder(OrderedItems orderedItems, FoodItem item)
+        {
+            orderedItems.AddItem(item);
+        }
+
+        [WebMethod]
+        public void AddOrderToHistory(Orders orderHistory, OrderedItems order)
+        {
+            orderHistory.AddOrder(order);
+        }
+
+        [WebMethod]
+        public int UpdateOrderedItems(OrderedItems orderedItems)
+        {
+            return orderedItems.Update();
+        }
+
+        [WebMethod]
+        public int UpdateOrders(Orders order)
+        {
+            return order.Update();
+        }
+
+        [WebMethod]
+        public int AddOrderedItem(OrderedItems orderedItems)
+        {
+            return orderedItems.AddNew();
+        }
+
+        [WebMethod]
+        public int AddOrders(Orders order)
+        {
+            return order.AddNew();  
+        }
+        #endregion
     }
 }
