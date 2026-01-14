@@ -315,7 +315,12 @@
         </s:complexType>
       </s:element>
       <s:element name="AddItemToOrderResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderedItems" type="tns:OrderedItems" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:FoodItem" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="AddOrderToHistory">
         <s:complexType>
@@ -326,7 +331,12 @@
         </s:complexType>
       </s:element>
       <s:element name="AddOrderToHistoryResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderHistory" type="tns:Orders" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:OrderedItems" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="UpdateOrderedItems">
         <s:complexType>

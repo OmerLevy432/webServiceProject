@@ -1,4 +1,5 @@
-﻿using System;
+﻿using client.MyWs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -38,7 +39,7 @@ namespace client.userPages
         protected void addFoodToOrder_Click(object sender, EventArgs e)
         {
             item = service.GetFoodItemById(int.Parse(itemIdEntry.Text));
-            service.AddItemToOrder(orderedItems, item);
+            service.AddItemToOrder(ref orderedItems, ref item);
 
             // set the items to be viewed on the website
             foodRepeater.DataSource = orderedItems.FoodItems;
@@ -53,9 +54,12 @@ namespace client.userPages
             user = service.UserGet(userId);
 
             // add the ordered items to the order history of the user
-            service.AddOrderToHistory(user.OrderHistory, orderedItems);
-            service.AddOrders(user.OrderHistory);
-            service.AddOrderedItem(orderedItems);
+            MyWs.Orders ordersHistory = user.OrderHistory;
+            ordersHistory.OrderList = new MyWs.OrderedItems[0];
+            service.AddOrderToHistory(ref ordersHistory, ref orderedItems);
+
+            service.AddOrders(ordersHistory);
+            Response.Redirect(string.Format("UserProfile.aspx?userId={0}", userId));
         }
     }
 }

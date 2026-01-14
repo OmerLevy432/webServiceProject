@@ -11,6 +11,7 @@ namespace webService.App_Code
     {
         // define getters and setters
         public int UserId { get; set; }
+        public int OrderId { get; set; }
         public List<OrderedItems> OrderList { get; private set; }
 
         // define constructors
@@ -25,7 +26,7 @@ namespace webService.App_Code
         }
 
         // methods
-        public void AddOrder(OrderedItems order)
+        public void AddOrder(ref OrderedItems order)
         {
             this.OrderList.Add(order);
         }
@@ -48,6 +49,7 @@ namespace webService.App_Code
                 this.OrderList.Add(new OrderedItems(orderId));
                 this.OrderList[i].OrderDate = Convert.ToDateTime(allOrders.Tables[0].Rows[i]["orderDate"]);
             }
+            this.OrderId = orderId;
 
             return 1;
         }
@@ -58,11 +60,24 @@ namespace webService.App_Code
             int i = 0;
             string query = "";
             int rowsChanged = 0;
+            bool hasOrderId = false;
+            Orders ordersCopy;
 
             for (i = 0; i < this.OrderList.Count; i++)
             {
-                query = string.Format("insert into orders (orderId, userId, orderDate) values ('{0}', '{1}', '{2}')", this.OrderList[i].OrderId, this.UserId, this.OrderList[i].OrderDate);
+                query = string.Format("insert into orders (userId, orderDate) values ('{0}', '{1}')", this.UserId, this.OrderList[i].OrderDate);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
+
+                // get the new order id
+                if (!hasOrderId)
+                {
+                    ordersCopy = new Orders(this.UserId);
+                    this.OrderId = ordersCopy.OrderId;
+                    hasOrderId = true;
+                }
+
+                this.OrderList[i].OrderId = this.OrderId;
+                this.OrderList[i].AddNew();
             }
 
             return rowsChanged;

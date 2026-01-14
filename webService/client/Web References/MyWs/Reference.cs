@@ -707,10 +707,12 @@ namespace client.MyWs {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddItemToOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddItemToOrder(OrderedItems orderedItems, FoodItem item) {
-            this.Invoke("AddItemToOrder", new object[] {
+        public void AddItemToOrder(ref OrderedItems orderedItems, ref FoodItem item) {
+            object[] results = this.Invoke("AddItemToOrder", new object[] {
                         orderedItems,
                         item});
+            orderedItems = ((OrderedItems)(results[0]));
+            item = ((FoodItem)(results[1]));
         }
         
         /// <remarks/>
@@ -731,16 +733,18 @@ namespace client.MyWs {
         private void OnAddItemToOrderOperationCompleted(object arg) {
             if ((this.AddItemToOrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AddItemToOrderCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AddItemToOrderCompleted(this, new AddItemToOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrderToHistory", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddOrderToHistory(Orders orderHistory, OrderedItems order) {
-            this.Invoke("AddOrderToHistory", new object[] {
+        public void AddOrderToHistory(ref Orders orderHistory, ref OrderedItems order) {
+            object[] results = this.Invoke("AddOrderToHistory", new object[] {
                         orderHistory,
                         order});
+            orderHistory = ((Orders)(results[0]));
+            order = ((OrderedItems)(results[1]));
         }
         
         /// <remarks/>
@@ -761,7 +765,7 @@ namespace client.MyWs {
         private void OnAddOrderToHistoryOperationCompleted(object arg) {
             if ((this.AddOrderToHistoryCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AddOrderToHistoryCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AddOrderToHistoryCompleted(this, new AddOrderToHistoryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1631,11 +1635,71 @@ namespace client.MyWs {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    public delegate void AddItemToOrderCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void AddItemToOrderCompletedEventHandler(object sender, AddItemToOrderCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    public delegate void AddOrderToHistoryCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddItemToOrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddItemToOrderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public OrderedItems orderedItems {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((OrderedItems)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public FoodItem item {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((FoodItem)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void AddOrderToHistoryCompletedEventHandler(object sender, AddOrderToHistoryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddOrderToHistoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddOrderToHistoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Orders orderHistory {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Orders)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public OrderedItems order {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((OrderedItems)(this.results[1]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]

@@ -219,15 +219,15 @@ namespace webService
         #region orders
 
         [WebMethod]
-        public void AddItemToOrder(OrderedItems orderedItems, FoodItem item)
+        public void AddItemToOrder(ref OrderedItems orderedItems, ref FoodItem item)
         {
             orderedItems.AddItem(item);
         }
 
         [WebMethod]
-        public void AddOrderToHistory(Orders orderHistory, OrderedItems order)
+        public void AddOrderToHistory(ref Orders orderHistory, ref OrderedItems order)
         {
-            orderHistory.AddOrder(order);
+            orderHistory.AddOrder(ref order);
         }
 
         [WebMethod]
@@ -242,11 +242,6 @@ namespace webService
             return order.Update();
         }
 
-        [WebMethod]
-        public int AddOrderedItem(OrderedItems orderedItems)
-        {
-            return orderedItems.AddNew();
-        }
 
         [WebMethod]
         public int AddOrders(Orders order)

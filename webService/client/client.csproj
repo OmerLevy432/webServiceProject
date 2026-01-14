@@ -208,10 +208,16 @@
     <Content Include="Web References\MyWs\MyUser.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <None Include="Web References\MyWs\Reference.map">
+    <Content Include="Web References\MyWs\OrderedItems.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\MyWs\Orders.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\MyWs\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <Content Include="Web References\MyWs\Roles.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
