@@ -11,53 +11,35 @@ namespace client.userPages
 {
 
 
-    public partial class OrderFood
+    public partial class OrderFood2
     {
 
         /// <summary>
-        /// FoodItemsList control.
+        /// ItemListDDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList FoodItemsList;
+        protected global::System.Web.UI.WebControls.DropDownList ItemListDDL;
 
         /// <summary>
-        /// FoodQuantity control.
+        /// QuantityTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FoodQuantity;
+        protected global::System.Web.UI.WebControls.TextBox QuantityTextBox;
 
         /// <summary>
-        /// addFoodToOrder control.
+        /// AdditemToList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addFoodToOrder;
-
-        /// <summary>
-        /// SubmitOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitOrder;
-
-        /// <summary>
-        /// foodRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater foodRepeater;
+        protected global::System.Web.UI.WebControls.Button AdditemToList;
 
         /// <summary>
         /// ListView1 control.
@@ -69,21 +51,30 @@ namespace client.userPages
         protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
-        /// UpdateItemButton control.
+        /// UpdateItemInList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateItemButton;
+        protected global::System.Web.UI.WebControls.Button UpdateItemInList;
 
         /// <summary>
-        /// DeleteItemButton control.
+        /// DeleteItemInList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteItemButton;
+        protected global::System.Web.UI.WebControls.Button DeleteItemInList;
+
+        /// <summary>
+        /// SaveOrderButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveOrderButton;
     }
 }

@@ -56,6 +56,10 @@ namespace client.userPages
             foodAmounts = orderedItems.FoodAmounts;
             foodRepeater.DataSource = orderedItems.FoodItems;
             foodRepeater.DataBind();
+
+            // add item to the view list
+            ListView1.DataSource = orderedItems.FoodItems;
+            ListView1.DataBind();
         }
 
         protected void SubmitOrder_Click(object sender, EventArgs e)
@@ -81,6 +85,17 @@ namespace client.userPages
                 return 0; 
             }
             return foodAmounts[index]; 
+        }
+
+        protected void DeleteItemButton_Click(object sender, EventArgs e)
+        {
+            int itemId = int.Parse(ListView1.SelectedValue.ToString());
+            
+        }
+
+        protected void UpdateItemButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

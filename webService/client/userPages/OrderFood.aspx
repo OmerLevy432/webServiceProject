@@ -24,4 +24,9 @@
      </SeparatorTemplate>
 
  </asp:Repeater>
+
+    <hr />
+    <asp:ListView ID="ListView1" runat="server"></asp:ListView>
+    <asp:Button ID="UpdateItemButton" runat="server" Text="Update" />
+    <asp:Button ID="DeleteItemButton" runat="server" Text="Delete" />
 </asp:Content>
