@@ -33,26 +33,10 @@ namespace webService.App_Code
         }
 
         // methods
-        public void AddItem(FoodItem item)
+        public void AddItem(FoodItem item, int amount)
         {
-            // set up the variables
-            int i = 0;
-            FoodItem currnet;
-
-            // check if the food item exists
-            for (i = 0;  i < this.FoodItems.Count; i++)
-            {
-                currnet = this.FoodItems[i];    
-                if (currnet.ItemId == item.ItemId)
-                {
-                    this.FoodAmounts[i]++;
-                    return;
-                }
-            }
-
-            // add the food item if it isnt in the list
             this.FoodItems.Add(item);
-            this.FoodAmounts.Add(1);
+            this.FoodAmounts.Add(amount);
         }
 
         // inits the ordered item from database data

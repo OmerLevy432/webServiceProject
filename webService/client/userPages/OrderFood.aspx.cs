@@ -16,6 +16,7 @@ namespace client.userPages
         MyWs.FoodItem item;
         MyWs.MyUser user;
         public string ordersLink = "";
+        protected static int[] foodAmounts;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,12 @@ namespace client.userPages
             {
                 // init the ordered items
                 orderedItems = new MyWs.OrderedItems();
+
+                // get the food list
+                FoodItemsList.DataSource = service.GetAllFoodItems();
+                FoodItemsList.DataValueField = "ItemId";
+                FoodItemsList.DataTextField = "ItemDescription";
+                FoodItemsList.DataBind();
             }
 
             // parse the userId
@@ -34,14 +41,19 @@ namespace client.userPages
                 ResolveUrl("~/FoodPages/FoodList.aspx"),
                 roleId
             );
+
+            // set empty item counts array
+            foodAmounts = Array.Empty<int>();
         }
 
         protected void addFoodToOrder_Click(object sender, EventArgs e)
         {
-            item = service.GetFoodItemById(int.Parse(itemIdEntry.Text));
+            int itemId = int.Parse(FoodItemsList.SelectedValue.ToString());
+            item = service.GetFoodItemById(itemId);
             service.AddItemToOrder(ref orderedItems, ref item);
 
             // set the items to be viewed on the website
+            foodAmounts = orderedItems.FoodAmounts;
             foodRepeater.DataSource = orderedItems.FoodItems;
             foodRepeater.DataBind();
         }
@@ -60,6 +72,15 @@ namespace client.userPages
 
             service.AddOrders(ordersHistory);
             Response.Redirect(string.Format("UserProfile.aspx?userId={0}", userId));
+        }
+
+        protected int GetItemCount(int index)
+        {
+            if (index >= foodAmounts.Length)
+            {
+                return 0; 
+            }
+            return foodAmounts[index]; 
         }
     }
 }

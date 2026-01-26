@@ -15,13 +15,22 @@ namespace client.userPages
     {
 
         /// <summary>
-        /// itemIdEntry control.
+        /// FoodItemsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox itemIdEntry;
+        protected global::System.Web.UI.WebControls.DropDownList FoodItemsList;
+
+        /// <summary>
+        /// FoodQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FoodQuantity;
 
         /// <summary>
         /// addFoodToOrder control.

@@ -219,9 +219,9 @@ namespace webService
         #region orders
 
         [WebMethod]
-        public void AddItemToOrder(ref OrderedItems orderedItems, ref FoodItem item)
+        public void AddItemToOrder(ref OrderedItems orderedItems, ref FoodItem item, int amount)
         {
-            orderedItems.AddItem(item);
+            orderedItems.AddItem(item, amount);
         }
 
         [WebMethod]
