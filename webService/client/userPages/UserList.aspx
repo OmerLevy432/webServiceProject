@@ -8,12 +8,15 @@
     <hr />
     <asp:Repeater ID="userRepeater" runat="server">
         <ItemTemplate>
-            <!--  Id) username - email, password, tah -->
-            <!-- link to orders history  -->
+
+
             <%#Eval("UserId")%>) 
             <%#Eval("UserName") %>
             <br />
-            <a href='UserProfile.aspx?userId=<%# Eval("UserId") %>'>View</a>
+            <a href='UserProfile.aspx?userId=<%# Eval("UserId") %>'>View</a> <br />
+            <a href='OrderFood.aspx?roleId=<%# Eval("RoleTag.RoleId") %>&userId=<%# Eval("UserId") %>'>
+                Go To Order</a>
+
         </ItemTemplate>
 
         <SeparatorTemplate>

@@ -24,19 +24,5 @@ namespace client
                 userRepeater.DataBind();
             }
         }
-
-        //public async Task<List<MyWs.MyUser>> CallMyWebServiceAsync(string parameter)
-        //{
-        //    // This is a method from your web service's proxy class.
-        //    // Here we assume `MyWebServiceMethodAsync` is a method exposed by the web service.
-
-        //    var result = await Task.Run(() =>
-        //    {
-        //        // Make the synchronous call in a Task to avoid blocking the main thread
-        //        return service.GetAllUsersAsync();
-        //    });
-
-        //    return result;
-        //}
     }
 }

@@ -35,6 +35,15 @@ namespace webService.App_Code
         // methods
         public void AddItem(FoodItem item, int amount)
         {
+            /* check if the item exists in the food items*/
+            for (int i = 0; i < this.FoodAmounts.Count; i++)
+            {
+                if (this.FoodItems[i].ItemId == item.ItemId)
+                {
+                    this.FoodAmounts[i] += amount;
+                    return;
+                }
+            }
             this.FoodItems.Add(item);
             this.FoodAmounts.Add(amount);
         }

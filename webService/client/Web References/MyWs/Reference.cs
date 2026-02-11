@@ -73,8 +73,6 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback UpdateOrdersOperationCompleted;
         
-        private System.Threading.SendOrPostCallback AddOrderedItemOperationCompleted;
-        
         private System.Threading.SendOrPostCallback AddOrdersOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -180,9 +178,6 @@ namespace client.MyWs {
         
         /// <remarks/>
         public event UpdateOrdersCompletedEventHandler UpdateOrdersCompleted;
-        
-        /// <remarks/>
-        public event AddOrderedItemCompletedEventHandler AddOrderedItemCompleted;
         
         /// <remarks/>
         public event AddOrdersCompletedEventHandler AddOrdersCompleted;
@@ -707,27 +702,29 @@ namespace client.MyWs {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddItemToOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddItemToOrder(ref OrderedItems orderedItems, ref FoodItem item) {
+        public void AddItemToOrder(ref OrderedItems orderedItems, ref FoodItem item, int amount) {
             object[] results = this.Invoke("AddItemToOrder", new object[] {
                         orderedItems,
-                        item});
+                        item,
+                        amount});
             orderedItems = ((OrderedItems)(results[0]));
             item = ((FoodItem)(results[1]));
         }
         
         /// <remarks/>
-        public void AddItemToOrderAsync(OrderedItems orderedItems, FoodItem item) {
-            this.AddItemToOrderAsync(orderedItems, item, null);
+        public void AddItemToOrderAsync(OrderedItems orderedItems, FoodItem item, int amount) {
+            this.AddItemToOrderAsync(orderedItems, item, amount, null);
         }
         
         /// <remarks/>
-        public void AddItemToOrderAsync(OrderedItems orderedItems, FoodItem item, object userState) {
+        public void AddItemToOrderAsync(OrderedItems orderedItems, FoodItem item, int amount, object userState) {
             if ((this.AddItemToOrderOperationCompleted == null)) {
                 this.AddItemToOrderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddItemToOrderOperationCompleted);
             }
             this.InvokeAsync("AddItemToOrder", new object[] {
                         orderedItems,
-                        item}, this.AddItemToOrderOperationCompleted, userState);
+                        item,
+                        amount}, this.AddItemToOrderOperationCompleted, userState);
         }
         
         private void OnAddItemToOrderOperationCompleted(object arg) {
@@ -824,35 +821,6 @@ namespace client.MyWs {
             if ((this.UpdateOrdersCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.UpdateOrdersCompleted(this, new UpdateOrdersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrderedItem", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int AddOrderedItem(OrderedItems orderedItems) {
-            object[] results = this.Invoke("AddOrderedItem", new object[] {
-                        orderedItems});
-            return ((int)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void AddOrderedItemAsync(OrderedItems orderedItems) {
-            this.AddOrderedItemAsync(orderedItems, null);
-        }
-        
-        /// <remarks/>
-        public void AddOrderedItemAsync(OrderedItems orderedItems, object userState) {
-            if ((this.AddOrderedItemOperationCompleted == null)) {
-                this.AddOrderedItemOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrderedItemOperationCompleted);
-            }
-            this.InvokeAsync("AddOrderedItem", new object[] {
-                        orderedItems}, this.AddOrderedItemOperationCompleted, userState);
-        }
-        
-        private void OnAddOrderedItemOperationCompleted(object arg) {
-            if ((this.AddOrderedItemCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AddOrderedItemCompleted(this, new AddOrderedItemCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1142,6 +1110,8 @@ namespace client.MyWs {
         
         private int userIdField;
         
+        private int orderIdField;
+        
         private OrderedItems[] orderListField;
         
         /// <remarks/>
@@ -1151,6 +1121,16 @@ namespace client.MyWs {
             }
             set {
                 this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OrderId {
+            get {
+                return this.orderIdField;
+            }
+            set {
+                this.orderIdField = value;
             }
         }
         
@@ -1740,32 +1720,6 @@ namespace client.MyWs {
         private object[] results;
         
         internal UpdateOrdersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public int Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    public delegate void AddOrderedItemCompletedEventHandler(object sender, AddOrderedItemCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class AddOrderedItemCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal AddOrderedItemCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

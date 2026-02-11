@@ -39,6 +39,7 @@
 
              <div>
                  Date: <%#Eval("OrderDate") %>
+                 Total Price:  <%#Eval("OrderDate") %>
              </div>
 
              <div>
