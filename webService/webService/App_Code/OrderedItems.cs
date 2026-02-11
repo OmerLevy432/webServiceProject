@@ -18,6 +18,7 @@ namespace webService.App_Code
         public List<FoodItem> FoodItems { get; set; }
         public List<int> FoodAmounts { get; set; }
         public DateTime OrderDate { get; set; }
+        public int totalPrice {  get; set; }
 
         // constructors
         public OrderedItems()
@@ -29,6 +30,7 @@ namespace webService.App_Code
         public OrderedItems(int orderId) : this()
         {
             this.OrderId = orderId;
+            this.totalPrice = 0;
             this.Init();
         }
 
@@ -48,7 +50,15 @@ namespace webService.App_Code
             this.FoodAmounts.Add(amount);
         }
 
-     
+        public void setTotalPrice()
+        {
+            double price = 0;
+            for (int i = 0; i < this.FoodItems.Count; i++)
+            {
+                price += (this.FoodItems[i].ItemPrice * this.FoodAmounts[i]);
+            }
+            this.totalPrice = (int)price;
+        }
 
         // inits the ordered item from database data
         public int Init()
