@@ -90,6 +90,17 @@ namespace client.userPages
             ListView1.DataBind();
         }
 
+        protected void modifyItemQuantity(int itemId, int quantity)
+        {
+            for (int i = 0; i < foodItems.Count; i++)
+            {
+                if (foodItems[i].ItemId == itemId)
+                {
+                    foodAmounts[i] = quantity;
+                }
+            }
+        }
+
         protected void SubmitOrder_Click(object sender, EventArgs e)
         {
             int userId;
@@ -135,9 +146,9 @@ namespace client.userPages
                     (HtmlInputGenericControl)e.Item.FindControl("ItemQuantity");
 
                 int newQuantity = int.Parse(quantityInput.Value);
-                string itemId = e.CommandArgument.ToString();
+                int itemId = int.Parse(e.CommandArgument.ToString());
 
-                // TODO: Update the quantity in your order logic here
+                modifyItemQuantity(itemId, newQuantity);
             }
 
         }
