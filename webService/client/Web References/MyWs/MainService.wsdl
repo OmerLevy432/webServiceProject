@@ -50,6 +50,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="FoodItems" type="tns:ArrayOfFoodItem" />
           <s:element minOccurs="0" maxOccurs="1" name="FoodAmounts" type="tns:ArrayOfInt" />
           <s:element minOccurs="1" maxOccurs="1" name="OrderDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="totalPrice" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfFoodItem">

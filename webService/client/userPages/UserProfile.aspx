@@ -12,6 +12,7 @@
         Role ID : <%#Eval("RoleTag.RoleTag")%>
         <br />
         <a href='updateUser.aspx?userId=<%# Eval("UserId") %>'>Update User</a> <br />
+        <a href='OrderFood.aspx?roleId=<%# Eval("RoleTag.RoleId") %>&userId=<%# Eval("UserId") %>'>Order</a>
 
     </ItemTemplate>
 
@@ -30,16 +31,15 @@
                  DataSource='<%# Eval("FoodItems") %>'>
                  <ItemTemplate>
                      <li>
-                         Description:</strong> <%# Eval("ItemDescription") %> |
-                         Price:</strong> $<%# Eval("ItemPrice") %>
+                         </strong> <%# Eval("ItemDescription") %>: </strong> $<%# Eval("ItemPrice") %>
                      </li>
                  </ItemTemplate>
              </asp:Repeater>
              </div>
 
              <div>
-                 Date: <%#Eval("OrderDate") %>
-                 Total Price:  <%#Eval("OrderDate") %>
+                 Date: <%#Eval("OrderDate") %> <br />
+                 Total Price:  <%#Eval("TotalPrice") %>$
              </div>
 
              <div>

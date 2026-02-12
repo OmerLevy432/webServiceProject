@@ -30,11 +30,22 @@ namespace webService.App_Code
         public OrderedItems(int orderId) : this()
         {
             this.OrderId = orderId;
-            this.totalPrice = 0;
             this.Init();
+            this.setTotalPrice();
         }
 
         // methods
+        public void setTotalPrice()
+        {
+            double newPrice = 0;
+            for (int i = 0;  i < this.FoodItems.Count; i++)
+            {
+                newPrice += (this.FoodAmounts[i] * this.FoodItems[i].ItemPrice);
+            }
+
+            this.totalPrice = (int)newPrice;
+        }
+
         public void AddItem(FoodItem item, int amount)
         {
             /* check if the item exists in the food items*/
@@ -50,15 +61,6 @@ namespace webService.App_Code
             this.FoodAmounts.Add(amount);
         }
 
-        public void setTotalPrice()
-        {
-            double price = 0;
-            for (int i = 0; i < this.FoodItems.Count; i++)
-            {
-                price += (this.FoodItems[i].ItemPrice * this.FoodAmounts[i]);
-            }
-            this.totalPrice = (int)price;
-        }
 
         // inits the ordered item from database data
         public int Init()

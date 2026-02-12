@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace client.userPages
@@ -10,7 +11,6 @@ namespace client.userPages
     {
         MyWs.MainService service;
         static MyWs.OrderedItems orderedItems;
-        MyWs.FoodItem item;
         MyWs.MyUser user;
         public string ordersLink = "";
 
@@ -81,13 +81,9 @@ namespace client.userPages
         protected void addFoodToOrder_Click(object sender, EventArgs e)
         {
             int itemId = int.Parse(FoodItemsList.SelectedValue);
-            int itemQuantity = int.Parse(FoodQuantity.Text);
+            int itemQuantity = int.Parse(FoodQuantity.Value.ToString());
 
             addItemToOrder(itemId, itemQuantity);
-
-            // bind repeater
-            foodRepeater.DataSource = foodItems;
-            foodRepeater.DataBind();
 
             // bind listview
             ListView1.DataSource = foodItems;
@@ -132,10 +128,18 @@ namespace client.userPages
                 
                 ListView1.DataSource = foodItems;
                 ListView1.DataBind();
-
-                foodRepeater.DataSource = foodItems;
-                foodRepeater.DataBind();
             }
+            else if (e.CommandName == "ModifyItem")
+            {
+                HtmlInputGenericControl quantityInput =
+                    (HtmlInputGenericControl)e.Item.FindControl("ItemQuantity");
+
+                int newQuantity = int.Parse(quantityInput.Value);
+                string itemId = e.CommandArgument.ToString();
+
+                // TODO: Update the quantity in your order logic here
+            }
+
         }
     }
 }

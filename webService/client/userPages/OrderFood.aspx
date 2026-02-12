@@ -15,26 +15,13 @@
     <asp:DropDownList ID="FoodItemsList" runat="server"></asp:DropDownList>
 
     Quantity:
-    <asp:TextBox ID="FoodQuantity" runat="server" TextMode="Number" Text="1"></asp:TextBox>
+    <input id="FoodQuantity" type="number" runat="server" min="1" max="100" value="1"/>
 
     <asp:Button ID="addFoodToOrder" runat="server" Text="Add" OnClick="addFoodToOrder_Click" />
     <br />
 
     <asp:Button ID="SubmitOrder" runat="server" Text="Order" OnClick="SubmitOrder_Click" />
     <br /><br />
-
-    <!-- Repeater -->
-    <asp:Repeater ID="foodRepeater" runat="server">
-        <ItemTemplate>
-            Description: <%# Eval("ItemDescription") %>
-            Price: <%# Eval("ItemPrice") %>
-            Quantity: <%# GetItemCount(Container.ItemIndex) %>
-        </ItemTemplate>
-
-        <SeparatorTemplate>
-            <br />
-        </SeparatorTemplate>
-    </asp:Repeater>
 
     <hr />
 
@@ -58,12 +45,28 @@
             <tr>
                 <td><%# Eval("ItemDescription") %></td>
                 <td><%# Eval("ItemPrice") %></td>
-                <td><%# GetItemCount(Container.DisplayIndex) %></td>
+
+                <!-- 🔹 UPDATED QUANTITY COLUMN -->
+                <td>
+                    <input type="number"
+                           id="ItemQuantity"
+                           runat="server"
+                           min="1"
+                           max="100"
+                           value='<%# GetItemCount(Container.DisplayIndex) %>' />
+                </td>
+
                 <td>
                     <asp:Button ID="DeleteItemButton"
                         runat="server"
                         Text="Delete"
                         CommandName="DeleteItem"
+                        CommandArgument='<%# Eval("ItemId") %>' />
+
+                    <asp:Button ID="ModifyItemQuntity"
+                        runat="server"
+                        Text="Modify"
+                        CommandName="ModifyItem"
                         CommandArgument='<%# Eval("ItemId") %>' />
                 </td>
             </tr>

@@ -1059,6 +1059,8 @@ namespace client.MyWs {
         
         private System.DateTime orderDateField;
         
+        private int totalPriceField;
+        
         /// <remarks/>
         public int OrderId {
             get {
@@ -1096,6 +1098,16 @@ namespace client.MyWs {
             }
             set {
                 this.orderDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int totalPrice {
+            get {
+                return this.totalPriceField;
+            }
+            set {
+                this.totalPriceField = value;
             }
         }
     }

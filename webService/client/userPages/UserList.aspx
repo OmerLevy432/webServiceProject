@@ -10,13 +10,14 @@
         <ItemTemplate>
 
 
-            <%#Eval("UserId")%>) 
-            <%#Eval("UserName") %>
-            <br />
+            UserId: <%#Eval("UserId")%>  <br />
+            UserName: <%#Eval("UserName") %> <br />
+            
             <a href='UserProfile.aspx?userId=<%# Eval("UserId") %>'>View</a> <br />
             <a href='OrderFood.aspx?roleId=<%# Eval("RoleTag.RoleId") %>&userId=<%# Eval("UserId") %>'>
                 Go To Order</a>
 
+            <hr />
         </ItemTemplate>
 
         <SeparatorTemplate>
