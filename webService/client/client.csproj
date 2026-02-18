@@ -76,7 +76,9 @@
     <Content Include="userPages\addUser.aspx" />
     <Content Include="default.aspx" />
     <Content Include="userPages\chooseOrderUser.aspx" />
+    <Content Include="userPages\login.aspx" />
     <Content Include="userPages\OrderFood.aspx" />
+    <Content Include="userPages\signUp.aspx" />
     <Content Include="userPages\updateUser.aspx" />
     <Content Include="userPages\UserList.aspx" />
     <None Include="Properties\Settings.settings">
@@ -167,12 +169,26 @@
     <Compile Include="userPages\chooseOrderUser.aspx.designer.cs">
       <DependentUpon>chooseOrderUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="userPages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="userPages\OrderFood.aspx.cs">
       <DependentUpon>OrderFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="userPages\OrderFood.aspx.designer.cs">
       <DependentUpon>OrderFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userPages\signUp.aspx.cs">
+      <DependentUpon>signUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\signUp.aspx.designer.cs">
+      <DependentUpon>signUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="userPages\updateUser.aspx.cs">
       <DependentUpon>updateUser.aspx</DependentUpon>
@@ -214,10 +230,10 @@
     <Content Include="Web References\MyWs\Orders.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
-    <Content Include="Web References\MyWs\Reference.map">
+    <None Include="Web References\MyWs\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Web References\MyWs\Roles.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>

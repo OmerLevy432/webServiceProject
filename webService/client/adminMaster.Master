@@ -17,11 +17,7 @@
     <form id="form1" runat="server">
         <div>
             <nav>
-                <a href="<%= ResolveUrl("~/userPages/UserList.aspx") %>">User List</a>
-                <a href="<%= ResolveUrl("~/rolePages/RoleList.aspx") %>">Role List</a>
-                <a href="<%= ResolveUrl("~/FoodPages/FoodList.aspx") %>">Food List</a>
-                <a href="<%= ResolveUrl("~/userPages/chooseOrderUser.aspx") %>">Order</a>
-                <a href="<%= ResolveUrl("~/default.aspx") %>">Home</a>
+                <%=allowedPages %>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

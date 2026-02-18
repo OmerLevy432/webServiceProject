@@ -61,7 +61,13 @@ namespace webService.App_Code
 
         // add new user to the database
         public int AddNew()
-        {
+        {   
+            // if the user already exists
+            if (GetUserByEmailPassword(this.UserEmail, this.UserPassword) != null)
+            {
+                return 0;
+            }
+
             string query = string.Format("insert into users (userName, userEmail, userPassword, roleId) values ('{0}','{1}','{2}','{3}')", this.UserName, this.UserEmail, this.UserPassword, this.RoleTag.RoleId.ToString());
             return DbQ.ExecuteNonQuery(query);
         }
