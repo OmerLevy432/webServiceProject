@@ -1,4 +1,5 @@
-﻿using System;
+﻿using client.MyWs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,27 +17,21 @@ namespace client.userPages
             service = new MyWs.MainService();
 
             if (!IsPostBack)
-            {
-                int userId;
+            {   
+                MyWs.MyUser user = (MyUser)Session["userObject"];
 
-                // try to parse the userId
-                if (int.TryParse(Request.QueryString["userId"], out userId))
+                // check if the user has purchase history
+                if (user.OrderHistory.OrderList.Length > 0)
                 {
-                    MyWs.MyUser user = service.UserGet(userId);
-
-                    // check if the user has purchase history
-                    if (user.OrderHistory.OrderList.Length > 0)
-                    {
-                        repeaterPurchases.DataSource = user.OrderHistory.OrderList;
-                        repeaterPurchases.DataBind();
-                    }
-                    else
-                    {
-                        noOrdersLable.Text = "No orders yet...";
-                    }
-
-                        presentUserInformatiom(user);
+                    repeaterPurchases.DataSource = user.OrderHistory.OrderList;
+                    repeaterPurchases.DataBind();
                 }
+                else
+                {
+                    noOrdersLable.Text = "No orders yet...";
+                }
+
+                presentUserInformatiom(user);  
             }
         }
 
