@@ -992,6 +992,72 @@ namespace client.MyWs {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Review {
+        
+        private string contentField;
+        
+        private int reviewIdField;
+        
+        /// <remarks/>
+        public string content {
+            get {
+                return this.contentField;
+            }
+            set {
+                this.contentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int reviewId {
+            get {
+                return this.reviewIdField;
+            }
+            set {
+                this.reviewIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Reviews {
+        
+        private int itemIdField;
+        
+        private Review[] reviewsField;
+        
+        /// <remarks/>
+        public int itemId {
+            get {
+                return this.itemIdField;
+            }
+            set {
+                this.itemIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Review[] reviews {
+            get {
+                return this.reviewsField;
+            }
+            set {
+                this.reviewsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class FoodItem {
         
         private int itemIdField;
@@ -1001,6 +1067,10 @@ namespace client.MyWs {
         private string itemDescriptionField;
         
         private int userIdField;
+        
+        private Reviews itemReviewsField;
+        
+        private string imageUrlField;
         
         /// <remarks/>
         public int ItemId {
@@ -1039,6 +1109,26 @@ namespace client.MyWs {
             }
             set {
                 this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Reviews itemReviews {
+            get {
+                return this.itemReviewsField;
+            }
+            set {
+                this.itemReviewsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ImageUrl {
+            get {
+                return this.imageUrlField;
+            }
+            set {
+                this.imageUrlField = value;
             }
         }
     }

@@ -14,12 +14,18 @@ namespace webService.App_Code
         public double ItemPrice { get; set; }
         public string ItemDescription { get; set; }
         public int UserId { get; set; }
+        public Reviews itemReviews { get; set; }
+        public string ImageUrl {  get; set; }
 
         // constructors
-        public FoodItem() { }
+        public FoodItem()
+        {
+            this.itemReviews = new Reviews();
+        }
         public FoodItem(int itemId)
         {
             this.ItemId = itemId;
+            this.itemReviews = new Reviews(itemId);
             this.Init();
         }
         public FoodItem(FoodItem other)
@@ -28,6 +34,8 @@ namespace webService.App_Code
             this.ItemPrice = other.ItemPrice;
             this.ItemDescription = other.ItemDescription;
             this.UserId = other.UserId;
+            this.ImageUrl = other.ImageUrl;
+            this.itemReviews = new Reviews(other.itemReviews);
         }
 
         // 
@@ -47,6 +55,7 @@ namespace webService.App_Code
                 this.ItemDescription = itemsTable.Tables[0].Rows[0]["itemDescription"].ToString();
                 this.ItemPrice = double.Parse(itemsTable.Tables[0].Rows[0]["itemPrice"].ToString());
                 this.UserId = int.Parse(itemsTable.Tables[0].Rows[0]["userId"].ToString());
+                this.ImageUrl = itemsTable.Tables[0].Rows[0]["imageUrl"].ToString();
 
                 return 1;
             }
@@ -61,7 +70,7 @@ namespace webService.App_Code
         /// <returns>returns if the insertion was successful</returns>
         public int AddNew()
         {
-            string query = string.Format("insert into foodItems (itemPrice, itemDescription, userId) values ('{0}','{1}','{2}')", this.ItemPrice, this.ItemDescription, this.UserId);
+            string query = string.Format("insert into foodItems (itemPrice, itemDescription, userId, imageUrl) values ('{0}','{1}','{2}', '{3}')", this.ItemPrice, this.ItemDescription, this.UserId, this.ImageUrl);
             return DbQ.ExecuteNonQuery(query);
         }
 
@@ -71,7 +80,8 @@ namespace webService.App_Code
         /// <returns>returns if the update was successful</returns>
         public int Update()
         {
-            string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}' where itemId={3};", this.ItemPrice, this.ItemDescription, this.UserId, this.ItemId);
+            string query = string.Format("update foodItems set itemPrice='{0}' , itemDescription='{1}' , userId='{2}', " +
+                "imageUrl='{3}' where itemId={4};", this.ItemPrice, this.ItemDescription, this.UserId, this.ImageUrl, this.ItemId);
             return DbQ.ExecuteNonQuery(query);
         }
 
