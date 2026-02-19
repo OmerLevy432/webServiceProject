@@ -4,6 +4,8 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace webService.App_Code
 {
@@ -22,7 +24,9 @@ namespace webService.App_Code
         public int UserId { get; set;}
         public string UserName { get; set; }
         public string UserEmail { get; set; }
+
         public string UserPassword { get; set; }
+
         public Roles RoleTag { get; set; }
         public Orders OrderHistory { get; set; }
 
@@ -61,7 +65,7 @@ namespace webService.App_Code
 
         // add new user to the database
         public int AddNew()
-        {   
+        {
             // if the user already exists
             if (GetUserByEmailPassword(this.UserEmail, this.UserPassword) != null)
             {
@@ -147,5 +151,8 @@ namespace webService.App_Code
             }
             return null;
         }
+
+        // hash the user password
+    
     }
 }

@@ -12,7 +12,7 @@ namespace webService.App_Code
         // define getters and setters
         public int UserId { get; set; }
         public int OrderId { get; set; }
-        public List<OrderedItems> OrderList { get; private set; }
+        public List<OrderedItems> OrderList { get; set; }
 
         // define constructors
         public Orders()

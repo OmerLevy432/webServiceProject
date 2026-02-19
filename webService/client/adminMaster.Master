@@ -17,6 +17,10 @@
     <form id="form1" runat="server">
         <div>
             <nav>
+                <a runat="server" href="~/FoodPages/FoodList.aspx">Food List</a>
+                <a runat="server" href="~/default.aspx">Home</a>
+                <a runat="server" href="~/userPages/login.aspx">Login</a>
+                <a runat="server" href="~/userPages/signUp.aspx">Sign Up</a>
                 <%=allowedPages %>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

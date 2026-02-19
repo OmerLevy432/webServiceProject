@@ -8,7 +8,7 @@
     <ItemTemplate>
 
         User ID : <%#Eval("UserId")%> 
-        <%#Eval("UserName") %> - Email : <%#Eval("UserEmail") %>, Password : <%#Eval("UserPassword") %>,
+        <%#Eval("UserName") %> - Email : <%#Eval("UserEmail") %>,
         Role ID : <%#Eval("RoleTag.RoleTag")%>
         <br />
         <a href='updateUser.aspx?userId=<%# Eval("UserId") %>'>Update User</a> <br />
