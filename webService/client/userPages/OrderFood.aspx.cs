@@ -33,23 +33,20 @@ namespace client.userPages
                 FoodItemsList.DataValueField = "ItemId";
                 FoodItemsList.DataTextField = "ItemDescription";
                 FoodItemsList.DataBind();
-            }
 
-            // parse the roleId
-            int roleId;
-            int.TryParse(Request.QueryString["roleId"], out roleId);
+                user = (MyWs.MyUser)Session["userObject"];
 
-            ordersLink = string.Format(
-                "<a href=\"{0}?roleId={1}\">Menu</a>",
-                ResolveUrl("~/FoodPages/FoodList.aspx"),
-                roleId
-            );
+                ordersLink = string.Format(
+                   "<a href=\"{0}?roleId={1}\">Menu</a>",
+                   ResolveUrl("~/FoodPages/FoodList.aspx"),
+                   user.RoleTag.RoleId
+                );
 
-            // initialize empty array if null
-            if (foodAmounts == null)
-            {
-                foodAmounts = new List<int>();
-            }
+                if (foodAmounts == null)
+                {
+                    foodAmounts = new List<int>();
+                }
+            }           
         }
 
         protected void addItemToOrder(int itemID, int itemQuantity)
@@ -103,10 +100,7 @@ namespace client.userPages
 
         protected void SubmitOrder_Click(object sender, EventArgs e)
         {
-            int userId;
-            int.TryParse(Request.QueryString["userId"], out userId);
-
-            user = service.UserGet(userId);
+            user = (MyWs.MyUser)Session["userObject"];
 
             MyWs.Orders ordersHistory = user.OrderHistory;
             ordersHistory.OrderList = new MyWs.OrderedItems[0];
@@ -117,7 +111,7 @@ namespace client.userPages
             service.AddOrderToHistory(ref ordersHistory, ref orderedItems);
             service.AddOrders(ordersHistory);
 
-            Response.Redirect(string.Format("UserProfile.aspx?userId={0}", userId));
+            Response.Redirect(string.Format("UserProfile.aspx?userId={0}", user.UserId));
         }
 
         protected int GetItemCount(int index)

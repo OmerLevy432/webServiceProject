@@ -11,8 +11,8 @@
         <%#Eval("UserName") %> - Email : <%#Eval("UserEmail") %>,
         Role ID : <%#Eval("RoleTag.RoleTag")%>
         <br />
-        <a href='updateUser.aspx?userId=<%# Eval("UserId") %>'>Update User</a> <br />
-        <a href='OrderFood.aspx?roleId=<%# Eval("RoleTag.RoleId") %>&userId=<%# Eval("UserId") %>'>Order</a>
+        <a href='updateUser.aspx'>Update User</a> <br />
+        <a href='OrderFood.aspx>'>Order</a>
 
     </ItemTemplate>
 

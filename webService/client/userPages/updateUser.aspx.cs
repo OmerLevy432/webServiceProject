@@ -16,26 +16,20 @@ namespace client
         {
             service = new MyWs.MainService();
             if (!IsPostBack)
-            {
-                int userId;
+            {       
+                MyWs.MyUser user = (MyWs.MyUser)Session["userObject"];
+                UsernameBox.Text = user.UserName;
+                EmailBox.Text = user.UserEmail;
+                PasswordBox.Text = user.UserPassword;
+                UserIdLiteral.Text = user.UserId.ToString();
 
-                // try to parse the userId
-                if (int.TryParse(Request.QueryString["userId"], out userId))
-                {
-                    MyWs.MyUser user = service.UserGet(userId);
-                    UsernameBox.Text = user.UserName;
-                    EmailBox.Text = user.UserEmail;
-                    PasswordBox.Text = user.UserPassword;
-                    UserIdLiteral.Text = user.UserId.ToString();
+                // load the roles
+                DDLRole.DataSource = service.GetAllRoles();
+                DDLRole.DataTextField = "RoleTag";
+                DDLRole.DataValueField = "RoleId";
+                DDLRole.DataBind();
 
-                    // load the roles
-                    DDLRole.DataSource = service.GetAllRoles();
-                    DDLRole.DataTextField = "RoleTag";
-                    DDLRole.DataValueField = "RoleId";
-                    DDLRole.DataBind();
-
-                    DDLRole.SelectedValue = user.RoleTag.RoleId.ToString();
-                }
+                DDLRole.SelectedValue = user.RoleTag.RoleId.ToString();
             }
         }
 
@@ -43,7 +37,7 @@ namespace client
         {
             try
             {
-                user = new MyWs.MyUser();
+                user = (MyWs.MyUser)Session["userObject"];
 
                 // load the current values into the user
                 user.UserId = int.Parse(UserIdLiteral.Text);
@@ -51,7 +45,6 @@ namespace client
                 user.UserEmail = EmailBox.Text;
                 user.UserPassword = PasswordBox.Text;
                 user.RoleTag = new MyWs.Roles();
-                user.RoleTag.RoleId = int.Parse(DDLRole.SelectedValue.ToString());
 
                 // checks if the update was successful
                 if (service.UserUpdate(user) != -1)
