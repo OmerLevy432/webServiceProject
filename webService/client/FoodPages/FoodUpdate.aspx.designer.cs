@@ -51,6 +51,15 @@ namespace client.FoodPages
         protected global::System.Web.UI.WebControls.TextBox ItemDescriptionBox;
 
         /// <summary>
+        /// ImageUrlBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ImageUrlBox;
+
+        /// <summary>
         /// UpdateFoodButton control.
         /// </summary>
         /// <remarks>

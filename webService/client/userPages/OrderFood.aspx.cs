@@ -111,7 +111,7 @@ namespace client.userPages
             service.AddOrderToHistory(ref ordersHistory, ref orderedItems);
             service.AddOrders(ordersHistory);
 
-            Response.Redirect(string.Format("UserProfile.aspx?userId={0}", user.UserId));
+            Response.Redirect(string.Format("UserProfile.aspx"));
         }
 
         protected int GetItemCount(int index)

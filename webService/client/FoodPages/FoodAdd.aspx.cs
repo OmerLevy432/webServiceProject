@@ -18,12 +18,12 @@ namespace client.FoodPages
 
         protected void AddFoodButton_Click(object sender, EventArgs e)
         {
-
             // set info
             foodItem = new MyWs.FoodItem();
             foodItem.ItemDescription = DescriptionBox.Text;
             foodItem.ItemPrice = double.Parse(PriceBox.Text);
             foodItem.UserId = int.Parse(CreatorIdBox.Text);
+            foodItem.ImageUrl = ImageUrlBox.Text;
 
             if (service.FoodItemAdd(foodItem) != -1)
             {

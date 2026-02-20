@@ -7,6 +7,7 @@
     Creator ID: <asp:TextBox ID="ItemCreatorIdBox" runat="server"></asp:TextBox> <br />
     Price: <asp:TextBox ID="ItemPriceBox" runat="server"></asp:TextBox> <br />
     Description: <asp:TextBox ID="ItemDescriptionBox" runat="server"></asp:TextBox> <br />
+    Image Url: <asp:TextBox ID="ImageUrlBox" runat="server"></asp:TextBox> <br />
 
     <asp:Button ID="UpdateFoodButton" runat="server" Text="Update" OnClick="UpdateFoodButtonClick"/>
 </asp:Content>

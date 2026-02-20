@@ -18,10 +18,31 @@ namespace client.userPages
 
             if (!IsPostBack)
             {
-                currentItem = (MyWs.FoodItem)Session["currentItem"];
-                reviewsRepeater.DataSource = currentItem.itemReviews.reviews;
-                reviewsRepeater.DataBind();
+                setReviewsOnWebsite();
             }
+        }
+
+        protected void setReviewsOnWebsite()
+        {
+            currentItem = (MyWs.FoodItem)Session["currentItem"];
+            if (currentItem == null)
+            {
+                lblNoReviews.Visible = true;
+                return;
+            }
+
+            reviewsRepeater.DataSource = currentItem.itemReviews.reviews;
+            reviewsRepeater.DataBind();
+        }
+
+        protected void AddReviewButton_Click(object sender, EventArgs e)
+        {
+            MyWs.Review review = new MyWs.Review();
+            review.content = reviewTextBox.Text;
+
+            MyWs.Reviews reviews = new MyWs.Reviews();
+            reviews.reviews = new MyWs.Review[1];
+            reviews.reviews[0] = review;
         }
     }
 }

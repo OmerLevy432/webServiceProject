@@ -11,24 +11,21 @@ namespace client.FoodPages
     {
         MyWs.MainService service;
         MyWs.FoodItem foodItem;
+        MyWs.MyUser user;
         protected void Page_Load(object sender, EventArgs e)
         {
             service = new MyWs.MainService();
             foodItem = new MyWs.FoodItem();
+            user = (MyWs.MyUser)Session["userObject"];
 
             if (!IsPostBack)
             {
-                int itemId;
-
-                // try to parse the item id
-                if (int.TryParse(Request.QueryString["itemId"], out itemId))
-                {
-                    foodItem = service.GetFoodItemById(itemId);
-                    ItemCreatorIdBox.Text = foodItem.UserId.ToString();
-                    ItemIdBox.Text = foodItem.ItemId.ToString();
-                    ItemPriceBox.Text = foodItem.ItemPrice.ToString();
-                    ItemDescriptionBox.Text = foodItem.ItemDescription;
-                }
+                foodItem = (MyWs.FoodItem)Session["currentItem"];
+                ItemCreatorIdBox.Text = foodItem.UserId.ToString();
+                ItemIdBox.Text = foodItem.ItemId.ToString();
+                ItemPriceBox.Text = foodItem.ItemPrice.ToString();
+                ItemDescriptionBox.Text = foodItem.ItemDescription;
+                ImageUrlBox.Text = foodItem.ImageUrl;
             }
         }
 
@@ -41,6 +38,7 @@ namespace client.FoodPages
                 foodItem.ItemPrice = double.Parse(ItemPriceBox.Text);
                 foodItem.ItemDescription = ItemDescriptionBox.Text;
                 foodItem.ItemId = int.Parse(ItemIdBox.Text);
+                foodItem.ImageUrl = ImageUrlBox.Text;   
 
                 // update the food in the database
                 if (service.FoodItemUpdate(foodItem) != -1)
@@ -50,7 +48,6 @@ namespace client.FoodPages
             }
             catch (Exception)
             {
-
                 return;
             }
         }

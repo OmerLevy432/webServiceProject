@@ -11,22 +11,18 @@ namespace client.rolePages
     {
         MyWs.MainService service;
         MyWs.Roles role;
+        MyWs.MyUser user;
         protected void Page_Load(object sender, EventArgs e)
         {
             service = new MyWs.MainService();
             role = new MyWs.Roles();
+            user = (MyWs.MyUser)Session["userObject"];
 
             if (!IsPostBack)
             {
-                int roleId;
-
-                // try to parse the role id
-                if (int.TryParse(Request.QueryString["RoleId"], out roleId))
-                {
-                    role = service.GetRoleFromId(roleId);
-                    RoleIdLabel.Text = role.RoleId.ToString();
-                    RoleTagBox.Text = role.RoleTag;
-                }
+                role = user.RoleTag;
+                RoleIdLabel.Text = role.RoleId.ToString();
+                RoleTagBox.Text = role.RoleTag;
             }
         }
 
@@ -46,7 +42,6 @@ namespace client.rolePages
             }
             catch (Exception)
             {
-
                 return;
             }
         }

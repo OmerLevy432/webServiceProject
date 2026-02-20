@@ -12,6 +12,7 @@ namespace client
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
+            Session["userObject"] = null;
             Response.Redirect("~/FoodPages/FoodList.aspx");
         }
     }

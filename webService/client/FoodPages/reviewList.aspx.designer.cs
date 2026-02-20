@@ -15,6 +15,24 @@ namespace client.userPages
     {
 
         /// <summary>
+        /// reviewTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reviewTextBox;
+
+        /// <summary>
+        /// AddReviewButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddReviewButton;
+
+        /// <summary>
         /// reviewsRepeater control.
         /// </summary>
         /// <remarks>
@@ -22,5 +40,14 @@ namespace client.userPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater reviewsRepeater;
+
+        /// <summary>
+        /// lblNoReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoReviews;
     }
 }
