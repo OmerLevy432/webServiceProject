@@ -1,0 +1,80 @@
+﻿/* Center the whole page content */
+#ContentPlaceHolder1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    /* Limit width to middle lane */
+    #ContentPlaceHolder1 h1,
+    #ContentPlaceHolder1 > br,
+    #ContentPlaceHolder1 > span,
+    #ContentPlaceHolder1 > div,
+    #ContentPlaceHolder1 > table {
+        max-width: 800px;
+        width: 90%;
+    }
+
+    /* Style the page title */
+    #ContentPlaceHolder1 h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    /* Style each repeater item as a card */
+    #ContentPlaceHolder1 img {
+        display: block;
+        margin: 0 auto 15px auto;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    /* Card effect (wrap around each item visually) */
+    #ContentPlaceHolder1 a img {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+/* Text styling */
+#ContentPlaceHolder1 {
+    font-family: Arial, sans-serif;
+    color: #444;
+    text-align: center;
+}
+
+    /* Add spacing between repeater items */
+    #ContentPlaceHolder1 br + br {
+        margin-bottom: 30px;
+    }
+
+/* Style LinkButtons */
+a,
+input[type="submit"],
+button {
+    display: inline-block;
+    margin: 8px 5px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #3498db;
+    color: white !important;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+    /* Hover effect */
+    a:hover,
+    input[type="submit"]:hover,
+    button:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+
+/* Price emphasis (targets line containing Price text visually) */
+#ContentPlaceHolder1 {
+    line-height: 1.8;
+}

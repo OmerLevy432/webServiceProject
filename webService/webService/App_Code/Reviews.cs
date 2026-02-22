@@ -41,7 +41,8 @@ namespace webService.App_Code
             for (int i = 0; i < amountOfReviews; i++)
             {
                 Review currentReview = new Review(allReviews.Tables[0].Rows[i]["content"].ToString(),
-                                                  int.Parse(allReviews.Tables[0].Rows[i]["id"].ToString()));
+                                                  int.Parse(allReviews.Tables[0].Rows[i]["id"].ToString()),
+                                                  int.Parse(allReviews.Tables[0].Rows[i]["userId"].ToString()));
                 this.reviews.Add(currentReview);    
             }
 
@@ -56,8 +57,8 @@ namespace webService.App_Code
 
             for (i = 0; i < this.reviews.Count; i++)
             {
-                query = string.Format("insert into reviews (itemId, content) values ('{0}', '{1}')",
-                    this.itemId, this.reviews[i].content);
+                query = string.Format("insert into reviews (itemId, content, userId) values ('{0}', '{1}', '{2}')",
+                    this.itemId, this.reviews[i].content, this.reviews[i].userId);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
@@ -72,8 +73,8 @@ namespace webService.App_Code
 
             for (i = 0; i < this.reviews.Count; i++)
             {
-                query = string.Format("update orders set id='{0}', content='{1}' where itemId={2};", this.reviews[i].reviewId,
-                    this.reviews[i].content, this.itemId);
+                query = string.Format("update orders set id='{0}', content='{1}', userid='{2}' where itemId={3};", this.reviews[i].reviewId,
+                    this.reviews[i].content, this.reviews[i].userId, this.itemId);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
             }
 
@@ -101,18 +102,21 @@ namespace webService.App_Code
     {
         public string content { set; get; }
         public int reviewId { set; get; }
+        public int userId { set; get; }
         
         public Review() { }
-        public Review(string content, int reviewId)
+        public Review(string content, int reviewId, int userId)
         {
             this.content = content;
             this.reviewId = reviewId;
+            this.userId = userId;
         }
 
         public Review(Review review)
         {
             this.content = review.content;
             this.reviewId = review.reviewId;
+            this.userId = review.userId;
         }
     }
 }

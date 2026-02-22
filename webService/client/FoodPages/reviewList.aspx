@@ -10,9 +10,10 @@
     runat="server" 
     TextMode="MultiLine" 
     Rows="5" 
-    Columns="40">
+    Columns="40"
+    Visible="false">
     </asp:TextBox>
-    <asp:Button ID="AddReviewButton" runat="server" Text="Add Review" OnClick="AddReviewButton_Click"/> <br />
+    <asp:Button ID="AddReviewButton" runat="server" Text="Add Review" OnClick="AddReviewButton_Click" Visible="false"/> <br />
 
 
     <asp:Repeater ID="reviewsRepeater" runat="server">
@@ -24,6 +25,6 @@
         </SeparatorTemplate>
     </asp:Repeater>
 
-    <asp:Label ID="lblNoReviews" runat="server" Text="There Are No Reviews" Visible="false" />
+    <asp:Label ID="lblNoReviews" runat="server" Text="There Are No Reviews" Visible="false"/>
 
 </asp:Content>

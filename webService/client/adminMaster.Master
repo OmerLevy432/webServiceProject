@@ -6,12 +6,6 @@
     <title>Admin Page</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style>
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

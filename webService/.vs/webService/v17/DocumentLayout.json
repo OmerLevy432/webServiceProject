@@ -1,22 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\home\\desktop\\webserviceproject\\webservice\\client\\foodpages\\reviewlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\foodpages\\reviewlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\foodpages\\reviewlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|c:\\users\\home\\desktop\\webserviceproject\\webservice\\webservice\\app_code\\reviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\foodpages\\reviewlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\foodpages\\reviewlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\adminmaster.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\adminmaster.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webservice\\app_code\\reviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|solutionrelative:webservice\\app_code\\reviews.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|c:\\users\\home\\desktop\\webserviceproject\\webservice\\webservice\\app_code\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webservice\\app_code\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|solutionrelative:webservice\\app_code\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\home\\desktop\\webserviceproject\\webservice\\client\\foodpages\\reviewlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\foodpages\\reviewlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,54 +34,79 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Orders.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Orders.cs",
-              "RelativeDocumentMoniker": "webService\\App_Code\\Orders.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Orders.cs",
-              "RelativeToolTip": "webService\\App_Code\\Orders.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T16:01:19.746Z",
+              "DocumentIndex": 3,
+              "Title": "adminMaster.Master",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminMaster.Master",
+              "RelativeDocumentMoniker": "client\\adminMaster.Master",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminMaster.Master",
+              "RelativeToolTip": "client\\adminMaster.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-02-22T10:16:36.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "default.aspx",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\default.aspx",
+              "RelativeDocumentMoniker": "client\\default.aspx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\default.aspx",
+              "RelativeToolTip": "client\\default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-02-22T10:07:44.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Orders.cs",
+              "RelativeDocumentMoniker": "webService\\App_Code\\Orders.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Orders.cs",
+              "RelativeToolTip": "webService\\App_Code\\Orders.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T16:01:19.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Reviews.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Reviews.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Reviews.cs",
               "RelativeDocumentMoniker": "webService\\App_Code\\Reviews.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Reviews.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Reviews.cs",
               "RelativeToolTip": "webService\\App_Code\\Reviews.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAiwEwAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T16:00:43.896Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "reviewList.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx.cs",
               "RelativeDocumentMoniker": "client\\FoodPages\\reviewList.aspx.cs",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx.cs",
               "RelativeToolTip": "client\\FoodPages\\reviewList.aspx.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAkwCwAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCIAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T15:57:22.492Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "reviewList.aspx",
-              "DocumentMoniker": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx",
               "RelativeDocumentMoniker": "client\\FoodPages\\reviewList.aspx",
-              "ToolTip": "C:\\Users\\HOME\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\FoodPages\\reviewList.aspx",
               "RelativeToolTip": "client\\FoodPages\\reviewList.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
