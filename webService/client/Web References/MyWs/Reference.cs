@@ -75,6 +75,10 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback AddOrdersOperationCompleted;
         
+        private System.Threading.SendOrPostCallback AddReviewOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetItemReviewsOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -181,6 +185,12 @@ namespace client.MyWs {
         
         /// <remarks/>
         public event AddOrdersCompletedEventHandler AddOrdersCompleted;
+        
+        /// <remarks/>
+        public event AddReviewCompletedEventHandler AddReviewCompleted;
+        
+        /// <remarks/>
+        public event GetItemReviewsCompletedEventHandler GetItemReviewsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UserGet", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -854,6 +864,63 @@ namespace client.MyWs {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddReview", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AddReview(Reviews review) {
+            this.Invoke("AddReview", new object[] {
+                        review});
+        }
+        
+        /// <remarks/>
+        public void AddReviewAsync(Reviews review) {
+            this.AddReviewAsync(review, null);
+        }
+        
+        /// <remarks/>
+        public void AddReviewAsync(Reviews review, object userState) {
+            if ((this.AddReviewOperationCompleted == null)) {
+                this.AddReviewOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddReviewOperationCompleted);
+            }
+            this.InvokeAsync("AddReview", new object[] {
+                        review}, this.AddReviewOperationCompleted, userState);
+        }
+        
+        private void OnAddReviewOperationCompleted(object arg) {
+            if ((this.AddReviewCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddReviewCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetItemReviews", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Reviews GetItemReviews(int itemId) {
+            object[] results = this.Invoke("GetItemReviews", new object[] {
+                        itemId});
+            return ((Reviews)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetItemReviewsAsync(int itemId) {
+            this.GetItemReviewsAsync(itemId, null);
+        }
+        
+        /// <remarks/>
+        public void GetItemReviewsAsync(int itemId, object userState) {
+            if ((this.GetItemReviewsOperationCompleted == null)) {
+                this.GetItemReviewsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetItemReviewsOperationCompleted);
+            }
+            this.InvokeAsync("GetItemReviews", new object[] {
+                        itemId}, this.GetItemReviewsOperationCompleted, userState);
+        }
+        
+        private void OnGetItemReviewsOperationCompleted(object arg) {
+            if ((this.GetItemReviewsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetItemReviewsCompleted(this, new GetItemReviewsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -998,6 +1065,8 @@ namespace client.MyWs {
         
         private int reviewIdField;
         
+        private int userIdField;
+        
         /// <remarks/>
         public string content {
             get {
@@ -1015,6 +1084,16 @@ namespace client.MyWs {
             }
             set {
                 this.reviewIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int userId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
             }
         }
     }
@@ -1857,6 +1936,36 @@ namespace client.MyWs {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void AddReviewCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void GetItemReviewsCompletedEventHandler(object sender, GetItemReviewsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetItemReviewsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetItemReviewsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Reviews Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Reviews)(this.results[0]));
             }
         }
     }

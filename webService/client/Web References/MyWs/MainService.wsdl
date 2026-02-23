@@ -83,6 +83,7 @@
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="reviewId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfInt">
@@ -402,6 +403,30 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddReview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="review" type="tns:Reviews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddReviewResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetItemReviews">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemReviewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemReviewsResult" type="tns:Reviews" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="UserGetSoapIn">
@@ -542,6 +567,18 @@
   <wsdl:message name="AddOrdersSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrdersResponse" />
   </wsdl:message>
+  <wsdl:message name="AddReviewSoapIn">
+    <wsdl:part name="parameters" element="tns:AddReview" />
+  </wsdl:message>
+  <wsdl:message name="AddReviewSoapOut">
+    <wsdl:part name="parameters" element="tns:AddReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemReviewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemReviews" />
+  </wsdl:message>
+  <wsdl:message name="GetItemReviewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemReviewsResponse" />
+  </wsdl:message>
   <wsdl:portType name="MainServiceSoap">
     <wsdl:operation name="UserGet">
       <wsdl:input message="tns:UserGetSoapIn" />
@@ -634,6 +671,14 @@
     <wsdl:operation name="AddOrders">
       <wsdl:input message="tns:AddOrdersSoapIn" />
       <wsdl:output message="tns:AddOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddReview">
+      <wsdl:input message="tns:AddReviewSoapIn" />
+      <wsdl:output message="tns:AddReviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemReviews">
+      <wsdl:input message="tns:GetItemReviewsSoapIn" />
+      <wsdl:output message="tns:GetItemReviewsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MainServiceSoap" type="tns:MainServiceSoap">
@@ -845,6 +890,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddReview">
+      <soap:operation soapAction="http://tempuri.org/AddReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemReviews">
+      <soap:operation soapAction="http://tempuri.org/GetItemReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="MainServiceSoap12" type="tns:MainServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1048,6 +1111,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrders">
       <soap12:operation soapAction="http://tempuri.org/AddOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddReview">
+      <soap12:operation soapAction="http://tempuri.org/AddReview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemReviews">
+      <soap12:operation soapAction="http://tempuri.org/GetItemReviews" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

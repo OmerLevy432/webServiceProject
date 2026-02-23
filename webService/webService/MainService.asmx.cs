@@ -249,5 +249,20 @@ namespace webService
             return order.AddNew();  
         }
         #endregion
+
+        #region reviews
+
+        [WebMethod]
+        public void AddReview(Reviews review)
+        {
+            review.AddNew();
+        }
+
+        [WebMethod]
+        public Reviews GetItemReviews(int itemId)
+        {
+            return new Reviews(itemId);
+        }
+        #endregion
     }
 }

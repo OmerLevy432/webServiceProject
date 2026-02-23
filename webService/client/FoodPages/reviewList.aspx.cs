@@ -28,11 +28,11 @@ namespace client.userPages
         {
             currentItem = (MyWs.FoodItem)Session["currentItem"];
             if (currentItem == null) return;
-
-            reviewsRepeater.DataSource = currentItem.itemReviews.reviews;
+            
+            reviewsRepeater.DataSource = service.GetItemReviews(currentItem.ItemId).reviews;
             reviewsRepeater.DataBind();
 
-            bool thereAreReview = currentItem.itemReviews != null && currentItem.itemReviews.reviews.Length == 0;
+            bool thereAreReview = currentItem.itemReviews.reviews == null;
             if (thereAreReview) lblNoReviews.Visible = true;
         }
 
@@ -47,12 +47,24 @@ namespace client.userPages
 
         protected void AddReviewButton_Click(object sender, EventArgs e)
         {
+            user = (MyWs.MyUser)Session["userObject"];
+            currentItem = (MyWs.FoodItem)Session["currentItem"];
+
+            /* set the single review */
             MyWs.Review review = new MyWs.Review();
             review.content = reviewTextBox.Text;
+            review.userId = user.UserId;
 
+            /* put it within the reviews of the item */
             MyWs.Reviews reviews = new MyWs.Reviews();
             reviews.reviews = new MyWs.Review[1];
             reviews.reviews[0] = review;
+            reviews.itemId = currentItem.ItemId;
+
+            service.AddReview(reviews);
+
+            reviewsRepeater.DataSource = service.GetItemReviews(currentItem.ItemId).reviews;
+            reviewsRepeater.DataBind();
         }
     }
 }

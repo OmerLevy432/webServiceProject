@@ -12,7 +12,7 @@
             Creator ID: <%#Eval("UserId") %> <br />
             Price: <%#Eval("ItemPrice") %> <br />
             Description : <%#Eval("ItemDescription") %> <br />
-            <asp:LinkButton ID="btnViewReviews" runat="server" CommandArgument="123" OnCommand="btnViewReviews_Command">View Reviews</asp:LinkButton>
+            <asp:LinkButton ID="btnViewReviews" runat="server" CommandArgument='<%# Eval("ItemId") %>' OnCommand="btnViewReviews_Command">View Reviews</asp:LinkButton>
             
             <asp:LinkButton ID="btnUpdateItem" runat="server" 
             Text="Update Item"

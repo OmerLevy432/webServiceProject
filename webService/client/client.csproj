@@ -243,6 +243,9 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <Content Include="Web References\MyWs\Reviews.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <Content Include="Web References\MyWs\Roles.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
