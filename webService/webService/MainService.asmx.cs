@@ -248,6 +248,24 @@ namespace webService
         {
             return order.AddNew();  
         }
+
+        [WebMethod]
+        public void AddOrderToQueue(ref OrderQueue queue, Orders order)
+        {
+            queue.AddOrderToQueue(order);
+        }
+
+        [WebMethod]
+        public Orders RemoveOrderFromQueue(ref OrderQueue queue)
+        {
+            return queue.RemoveOrderFromQueue();
+        }
+
+        [WebMethod]
+        public OrderQueue InitOrderQueue()
+        {
+            return new OrderQueue();
+        }
         #endregion
 
         #region reviews

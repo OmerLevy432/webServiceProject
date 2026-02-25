@@ -15,6 +15,7 @@
                 <a runat="server" href="~/default.aspx">Home</a>
                 <a runat="server" href="~/userPages/login.aspx">Login</a>
                 <a runat="server" href="~/userPages/signUp.aspx">Sign Up</a>
+                <a runat="server" href="~/userPages/ViewOrders.aspx">Ready Orders</a>
                 <%=allowedPages %>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

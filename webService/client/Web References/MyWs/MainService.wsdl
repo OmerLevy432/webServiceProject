@@ -403,6 +403,56 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddOrderToQueue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queue" type="tns:OrderQueue" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:Orders" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrderQueue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="queue" type="tns:ArrayOfOrders" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrders">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Orders" nillable="true" type="tns:Orders" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOrderToQueueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queue" type="tns:OrderQueue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveOrderFromQueue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queue" type="tns:OrderQueue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveOrderFromQueueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveOrderFromQueueResult" type="tns:Orders" />
+            <s:element minOccurs="0" maxOccurs="1" name="queue" type="tns:OrderQueue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitOrderQueue">
+        <s:complexType />
+      </s:element>
+      <s:element name="InitOrderQueueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InitOrderQueueResult" type="tns:OrderQueue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="AddReview">
         <s:complexType>
           <s:sequence>
@@ -567,6 +617,24 @@
   <wsdl:message name="AddOrdersSoapOut">
     <wsdl:part name="parameters" element="tns:AddOrdersResponse" />
   </wsdl:message>
+  <wsdl:message name="AddOrderToQueueSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderToQueue" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderToQueueSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderToQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveOrderFromQueueSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveOrderFromQueue" />
+  </wsdl:message>
+  <wsdl:message name="RemoveOrderFromQueueSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveOrderFromQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitOrderQueueSoapIn">
+    <wsdl:part name="parameters" element="tns:InitOrderQueue" />
+  </wsdl:message>
+  <wsdl:message name="InitOrderQueueSoapOut">
+    <wsdl:part name="parameters" element="tns:InitOrderQueueResponse" />
+  </wsdl:message>
   <wsdl:message name="AddReviewSoapIn">
     <wsdl:part name="parameters" element="tns:AddReview" />
   </wsdl:message>
@@ -671,6 +739,18 @@
     <wsdl:operation name="AddOrders">
       <wsdl:input message="tns:AddOrdersSoapIn" />
       <wsdl:output message="tns:AddOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderToQueue">
+      <wsdl:input message="tns:AddOrderToQueueSoapIn" />
+      <wsdl:output message="tns:AddOrderToQueueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOrderFromQueue">
+      <wsdl:input message="tns:RemoveOrderFromQueueSoapIn" />
+      <wsdl:output message="tns:RemoveOrderFromQueueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitOrderQueue">
+      <wsdl:input message="tns:InitOrderQueueSoapIn" />
+      <wsdl:output message="tns:InitOrderQueueSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="AddReview">
       <wsdl:input message="tns:AddReviewSoapIn" />
@@ -883,6 +963,33 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrders">
       <soap:operation soapAction="http://tempuri.org/AddOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderToQueue">
+      <soap:operation soapAction="http://tempuri.org/AddOrderToQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOrderFromQueue">
+      <soap:operation soapAction="http://tempuri.org/RemoveOrderFromQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitOrderQueue">
+      <soap:operation soapAction="http://tempuri.org/InitOrderQueue" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1111,6 +1218,33 @@
     </wsdl:operation>
     <wsdl:operation name="AddOrders">
       <soap12:operation soapAction="http://tempuri.org/AddOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderToQueue">
+      <soap12:operation soapAction="http://tempuri.org/AddOrderToQueue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOrderFromQueue">
+      <soap12:operation soapAction="http://tempuri.org/RemoveOrderFromQueue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitOrderQueue">
+      <soap12:operation soapAction="http://tempuri.org/InitOrderQueue" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

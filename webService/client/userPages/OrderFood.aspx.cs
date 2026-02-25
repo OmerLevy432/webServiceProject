@@ -98,6 +98,18 @@ namespace client.userPages
             }
         }
 
+        protected void AddOrderToQueue(Orders order)
+        {
+            OrderQueue notReadyQueue = (MyWs.OrderQueue)Session["notReadyQueue"];
+            if (notReadyQueue == null)
+            {
+                notReadyQueue = service.InitOrderQueue();
+            }
+
+            service.AddOrderToQueue(ref notReadyQueue, order);
+            Session["notReadyQueue"] = notReadyQueue;
+        }
+
         protected void SubmitOrder_Click(object sender, EventArgs e)
         {
             user = (MyWs.MyUser)Session["userObject"];
@@ -111,7 +123,9 @@ namespace client.userPages
             service.AddOrderToHistory(ref ordersHistory, ref orderedItems);
             service.AddOrders(ordersHistory);
 
-            Response.Redirect(string.Format("UserProfile.aspx"));
+            AddOrderToQueue(ordersHistory);
+
+            Response.Redirect("../FoodPages/FoodList.aspx");
         }
 
         protected int GetItemCount(int index)

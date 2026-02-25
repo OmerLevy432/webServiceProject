@@ -79,6 +79,7 @@
     <Content Include="default.aspx" />
     <Content Include="userPages\chooseOrderUser.aspx" />
     <Content Include="userPages\login.aspx" />
+    <Content Include="userPages\MakeOrders.aspx" />
     <Content Include="userPages\OrderFood.aspx" />
     <Content Include="userPages\signUp.aspx" />
     <Content Include="userPages\updateUser.aspx" />
@@ -88,6 +89,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="userPages\UserProfile.aspx" />
+    <Content Include="userPages\ViewOrders.aspx" />
     <Content Include="Web References\MyWs\FoodItem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -185,6 +187,13 @@
     <Compile Include="userPages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="userPages\MakeOrders.aspx.cs">
+      <DependentUpon>MakeOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\MakeOrders.aspx.designer.cs">
+      <DependentUpon>MakeOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="userPages\OrderFood.aspx.cs">
       <DependentUpon>OrderFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +229,13 @@
     <Compile Include="userPages\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="userPages\ViewOrders.aspx.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userPages\ViewOrders.aspx.designer.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web References\MyWs\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -234,6 +250,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\MyWs\OrderedItems.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\MyWs\OrderQueue.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\MyWs\Orders.datasource">

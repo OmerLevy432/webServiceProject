@@ -17,24 +17,23 @@ namespace client
         {
             service = new MyWs.MainService();
 
-            if (IsPostBack) return;
-
             MyUser user = (MyUser)Session["userObject"];
-
             if (user == null) return;
 
             switch (user.RoleTag.RoleId)
             {
                 case 1:
                 case 2:
-                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserProfile.aspx") + "\">Profile</a>";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserProfile.aspx") + "\">Profile</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/MakeOrders.aspx") + "\">Make Order</a>\n";
                     break;
 
                 case 3:
-                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserProfile.aspx") + "\">Profile</a>";
-                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/chooseOrderUser.aspx") + "\">Order</a>";
-                    allowedPages += "<a href=\"" + ResolveUrl("~/rolePages/RoleList.aspx") + "\">Role List</a>";
-                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserList.aspx") + "\">User List</a>";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/MakeOrders.aspx") + "\">Make Order</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserProfile.aspx") + "\">Profile</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/chooseOrderUser.aspx") + "\">Order</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/rolePages/RoleList.aspx") + "\">Role List</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserList.aspx") + "\">User List</a>\n";
                     break;
 
             }
