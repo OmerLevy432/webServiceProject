@@ -24,15 +24,6 @@ namespace client
         protected global::System.Web.UI.WebControls.TextBox UsernameBox;
 
         /// <summary>
-        /// PasswordBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordBox;
-
-        /// <summary>
         /// EmailBox control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace client
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailBox;
+
+        /// <summary>
+        /// PasswordBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PasswordBox;
 
         /// <summary>
         /// DDLRole control.

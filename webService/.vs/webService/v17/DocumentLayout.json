@@ -7,52 +7,32 @@
       "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\vieworders.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\vieworders.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\webservice\\app_code\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|solutionrelative:webservice\\app_code\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\makeorders.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\makeorders.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\userpages\\userlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\userlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webservice\\mainservice.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|solutionrelative:webservice\\mainservice.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\stylesheets\\adduserstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\stylesheets\\adduserstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\orderfood.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\orderfood.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\userpages\\adduser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\adduser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\makeorders.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\makeorders.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\userpages\\chooseorderuser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\chooseorderuser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\orderfood.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\orderfood.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\stylesheets\\loginstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\stylesheets\\loginstyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\webservice\\app_code\\ordersxmlwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA5EB4A9-E149-48D0-B8DB-2AB8EFC90273}|webService\\webService.csproj|solutionrelative:webservice\\app_code\\ordersxmlwrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminmaster.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\adminmaster.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\vieworders.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\vieworders.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminmaster.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\adminmaster.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\userprofile.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\userprofile.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userpages\\userprofile.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\userprofile.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|c:\\users\\user\\desktop\\webserviceproject\\webservice\\client\\userpages\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{24CF61CA-D696-4D3C-9A14-77BEFC8EE40B}|client\\client.csproj|solutionrelative:client\\userpages\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,97 +42,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrdersXmlWrapper.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\OrdersXmlWrapper.cs",
-              "RelativeDocumentMoniker": "webService\\App_Code\\OrdersXmlWrapper.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\OrdersXmlWrapper.cs",
-              "RelativeToolTip": "webService\\App_Code\\OrdersXmlWrapper.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAgwKYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Roles.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Roles.cs",
+              "RelativeDocumentMoniker": "webService\\App_Code\\Roles.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\App_Code\\Roles.cs",
+              "RelativeToolTip": "webService\\App_Code\\Roles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T07:24:14.279Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderFood.aspx",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\OrderFood.aspx",
-              "RelativeDocumentMoniker": "client\\userPages\\OrderFood.aspx",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\OrderFood.aspx",
-              "RelativeToolTip": "client\\userPages\\OrderFood.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-25T06:53:52.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrderFood.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\OrderFood.aspx.cs",
-              "RelativeDocumentMoniker": "client\\userPages\\OrderFood.aspx.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\OrderFood.aspx.cs",
-              "RelativeToolTip": "client\\userPages\\OrderFood.aspx.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAASwHMAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T07:31:07.227Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainService.asmx.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\MainService.asmx.cs",
-              "RelativeDocumentMoniker": "webService\\MainService.asmx.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\webService\\MainService.asmx.cs",
-              "RelativeToolTip": "webService\\MainService.asmx.cs",
-              "ViewState": "AgIAAPMAAAAAAAAAAADgvwMBAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T07:39:56.09Z",
+              "WhenOpened": "2026-02-26T08:46:02.75Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MakeOrders.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\MakeOrders.aspx.cs",
-              "RelativeDocumentMoniker": "client\\userPages\\MakeOrders.aspx.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\MakeOrders.aspx.cs",
-              "RelativeToolTip": "client\\userPages\\MakeOrders.aspx.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T07:04:00.571Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MakeOrders.aspx",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\MakeOrders.aspx",
-              "RelativeDocumentMoniker": "client\\userPages\\MakeOrders.aspx",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\MakeOrders.aspx",
-              "RelativeToolTip": "client\\userPages\\MakeOrders.aspx",
+              "Title": "UserList.aspx",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\UserList.aspx",
+              "RelativeDocumentMoniker": "client\\userPages\\UserList.aspx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\UserList.aspx",
+              "RelativeToolTip": "client\\userPages\\UserList.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-25T07:00:29.382Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ViewOrders.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\ViewOrders.aspx.cs",
-              "RelativeDocumentMoniker": "client\\userPages\\ViewOrders.aspx.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\ViewOrders.aspx.cs",
-              "RelativeToolTip": "client\\userPages\\ViewOrders.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T08:03:08.762Z",
+              "WhenOpened": "2026-02-26T08:42:01.613Z",
               "EditorCaption": ""
             },
             {
@@ -165,69 +80,73 @@
               "RelativeToolTip": "client\\default.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-23T09:18:33.079Z",
+              "WhenOpened": "2026-02-26T08:39:50.109Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "adminMaster.Master",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminMaster.Master",
-              "RelativeDocumentMoniker": "client\\adminMaster.Master",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminMaster.Master",
-              "RelativeToolTip": "client\\adminMaster.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-25T07:24:19.418Z",
+              "DocumentIndex": 3,
+              "Title": "addUserStyle.css",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\stylesheets\\addUserStyle.css",
+              "RelativeDocumentMoniker": "client\\stylesheets\\addUserStyle.css",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\stylesheets\\addUserStyle.css",
+              "RelativeToolTip": "client\\stylesheets\\addUserStyle.css",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAkwHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-26T08:39:42.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ViewOrders.aspx",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\ViewOrders.aspx",
-              "RelativeDocumentMoniker": "client\\userPages\\ViewOrders.aspx",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\ViewOrders.aspx",
-              "RelativeToolTip": "client\\userPages\\ViewOrders.aspx",
+              "DocumentIndex": 4,
+              "Title": "addUser.aspx",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\addUser.aspx",
+              "RelativeDocumentMoniker": "client\\userPages\\addUser.aspx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\addUser.aspx",
+              "RelativeToolTip": "client\\userPages\\addUser.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-25T07:52:48.506Z"
+              "WhenOpened": "2026-02-26T08:39:21.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "adminMaster.Master.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminMaster.Master.cs",
-              "RelativeDocumentMoniker": "client\\adminMaster.Master.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\adminMaster.Master.cs",
-              "RelativeToolTip": "client\\adminMaster.Master.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCMAAAByAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T07:17:54.74Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserProfile.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\UserProfile.aspx.cs",
-              "RelativeDocumentMoniker": "client\\userPages\\UserProfile.aspx.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\UserProfile.aspx.cs",
-              "RelativeToolTip": "client\\userPages\\UserProfile.aspx.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T07:28:34.85Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserProfile.aspx",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\UserProfile.aspx",
-              "RelativeDocumentMoniker": "client\\userPages\\UserProfile.aspx",
-              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\UserProfile.aspx",
-              "RelativeToolTip": "client\\userPages\\UserProfile.aspx",
+              "DocumentIndex": 5,
+              "Title": "chooseOrderUser.aspx",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\chooseOrderUser.aspx",
+              "RelativeDocumentMoniker": "client\\userPages\\chooseOrderUser.aspx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\chooseOrderUser.aspx",
+              "RelativeToolTip": "client\\userPages\\chooseOrderUser.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-25T07:02:17.69Z"
+              "WhenOpened": "2026-02-26T08:39:19.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "loginStyle.css",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\stylesheets\\loginStyle.css",
+              "RelativeDocumentMoniker": "client\\stylesheets\\loginStyle.css",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\stylesheets\\loginStyle.css",
+              "RelativeToolTip": "client\\stylesheets\\loginStyle.css",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAkwH0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-26T08:39:05.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "login.aspx",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\login.aspx",
+              "RelativeDocumentMoniker": "client\\userPages\\login.aspx",
+              "ToolTip": "C:\\Users\\User\\Desktop\\webServiceProject\\webService\\client\\userPages\\login.aspx",
+              "RelativeToolTip": "client\\userPages\\login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-02-26T08:38:43.469Z",
+              "EditorCaption": ""
             }
           ]
         }

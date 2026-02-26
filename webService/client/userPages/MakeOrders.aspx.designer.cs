@@ -15,13 +15,13 @@ namespace client.userPages
     {
 
         /// <summary>
-        /// repeaterOrders control.
+        /// MakeOrderButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterOrders;
+        protected global::System.Web.UI.WebControls.Button MakeOrderButton;
 
         /// <summary>
         /// noOrdersLable control.
@@ -33,12 +33,12 @@ namespace client.userPages
         protected global::System.Web.UI.WebControls.Label noOrdersLable;
 
         /// <summary>
-        /// MakeOrderButton control.
+        /// repeaterOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MakeOrderButton;
+        protected global::System.Web.UI.WebControls.Repeater repeaterOrders;
     }
 }

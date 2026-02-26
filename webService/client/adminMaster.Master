@@ -1,26 +1,39 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="adminMaster.master.cs" Inherits="client.adminMaster" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head runat="server">
-    <title>Admin Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    
+    <link href="~/stylesheets/masterPage.css" rel="stylesheet" type="text/css" runat="server" />
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <nav>
-                <a runat="server" href="~/FoodPages/FoodList.aspx">Food List</a>
-                <a runat="server" href="~/default.aspx">Home</a>
-                <a runat="server" href="~/userPages/login.aspx">Login</a>
-                <a runat="server" href="~/userPages/signUp.aspx">Sign Up</a>
-                <a runat="server" href="~/userPages/ViewOrders.aspx">Ready Orders</a>
-                <%=allowedPages %>
-            </nav>
+        
+        <header class="navbar">
+            <div class="nav-container">                
+                <nav class="nav-links">
+                    <a runat="server" href="~/default.aspx">Home</a>
+                    <a runat="server" href="~/FoodPages/FoodList.aspx">Food List</a>
+                    <a runat="server" href="~/userPages/ViewOrders.aspx">Ready Orders</a>
+                    <a runat="server" href="~/userPages/login.aspx">Login</a>
+                    <a runat="server" href="~/userPages/signUp.aspx">Sign Up</a>
+                    
+                    <%=allowedPages %>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
+        </main>
+        
     </form>
 </body>
 </html>

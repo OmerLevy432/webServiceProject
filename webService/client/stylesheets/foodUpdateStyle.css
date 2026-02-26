@@ -1,0 +1,105 @@
+﻿/* --- Reusable Page Layout --- */
+.page-container {
+    max-width: 600px; /* Narrower width for forms looks much better */
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #333;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+    .page-header h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        font-weight: 700;
+    }
+
+/* --- The Form Card --- */
+.form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+}
+
+/* --- Form Groups & Labels --- */
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column; /* Stacks the label right above the textbox */
+    gap: 0.5rem;
+}
+
+    .form-group label {
+        font-weight: 600;
+        color: #4a5568;
+        font-size: 0.95rem;
+    }
+
+/* --- Textboxes (Inputs) --- */
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-sizing: border-box; /* Prevents padding from breaking the width */
+}
+
+/* Resize only vertically for the MultiLine Description box */
+textarea.form-control {
+    resize: vertical;
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    border-color: #3b82f6; /* Modern Blue */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* --- Action Buttons --- */
+.form-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+    .btn-primary:hover {
+        background-color: #2563eb;
+        box-shadow: 0 4px 6px rgba(59, 130, 246, 0.4);
+        transform: translateY(-1px);
+    }
+
+/* Makes the update button stretch across the bottom nicely */
+.btn-full-width {
+    width: 100%;
+}

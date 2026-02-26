@@ -1,0 +1,172 @@
+﻿/* --- Layout --- */
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.orders-link-wrapper a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- Selection Card --- */
+.selection-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 3rem;
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.selection-group label {
+    display: block;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Cart Section --- */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.table-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .cart-table th {
+        background: #f8fafc;
+        padding: 1rem;
+        text-align: left;
+        font-size: 0.8rem;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .cart-table td {
+        padding: 1rem;
+        border-top: 1px solid #f1f5f9;
+    }
+
+/* --- Form Controls --- */
+.form-control {
+    width: 100%;
+    padding: 0.6rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.ddl-style {
+    height: 42px;
+}
+
+.table-qty {
+    width: 70px;
+    text-align: center;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+    .btn-primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+    }
+
+.btn-secondary {
+    background: #10b981;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background: #059669;
+    }
+
+/* --- Table Action Buttons --- */
+.btn-action {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin-left: 5px;
+}
+
+.btn-modify {
+    background: #eff6ff;
+    color: #3b82f6;
+    border-color: #dbeafe;
+}
+
+    .btn-modify:hover {
+        background: #3b82f6;
+        color: white;
+    }
+
+.btn-delete {
+    background: #fef2f2;
+    color: #ef4444;
+    border-color: #fee2e2;
+}
+
+    .btn-delete:hover {
+        background: #ef4444;
+        color: white;
+    }
+
+.text-right {
+    text-align: right;
+}
+
+.empty-cart {
+    padding: 3rem;
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+}
