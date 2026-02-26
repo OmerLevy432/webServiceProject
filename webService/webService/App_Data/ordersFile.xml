@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfOrdersXmlWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OrdersXmlWrapper>
+    <WrapperId>1</WrapperId>
+    <IsReady>true</IsReady>
+    <OrderData>
+      <UserId>2</UserId>
+      <OrderId>44</OrderId>
+      <OrderList>
+        <OrderedItems>
+          <OrderId>0</OrderId>
+          <FoodItems>
+            <FoodItem>
+              <ItemId>5</ItemId>
+              <ItemPrice>50</ItemPrice>
+              <ItemDescription>Classic Burger</ItemDescription>
+              <UserId>2</UserId>
+              <itemReviews>
+                <itemId>5</itemId>
+                <reviews />
+              </itemReviews>
+              <ImageUrl>https://www.aspicyperspective.com/wp-content/uploads/2020/07/best-hamburger-patties-1.jpg</ImageUrl>
+            </FoodItem>
+          </FoodItems>
+          <FoodAmounts>
+            <int>1</int>
+          </FoodAmounts>
+          <OrderDate>0001-01-01T00:00:00</OrderDate>
+          <totalPrice>0</totalPrice>
+        </OrderedItems>
+      </OrderList>
+    </OrderData>
+  </OrdersXmlWrapper>
+</ArrayOfOrdersXmlWrapper>

@@ -250,23 +250,23 @@ namespace webService
         }
 
         [WebMethod]
-        public void AddOrderToQueue(ref OrderQueue queue, Orders order)
+        public void PutOrderInQueue(Orders order, bool isReady)
         {
-            queue.AddOrderToQueue(order);
-        }
-
-        [WebMethod]
-        public Orders RemoveOrderFromQueue(ref OrderQueue queue)
-        {
-            return queue.RemoveOrderFromQueue();
-        }
-
-        [WebMethod]
-        public OrderQueue InitOrderQueue()
-        {
-            return new OrderQueue();
+            OrdersXmlWrapper.Enqueue(order, isReady);
         }
         #endregion
+
+        [WebMethod]
+        public void MakeOrder()
+        {
+            OrdersXmlWrapper.MarkNextOrderAsReady();
+        }
+
+        [WebMethod]
+        public List<Orders> GetOrdersByTag(bool ready)
+        {
+            return OrdersXmlWrapper.GetAllOrdersDataByStatus(ready);
+        }
 
         #region reviews
 

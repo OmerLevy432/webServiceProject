@@ -75,11 +75,11 @@ namespace client.MyWs {
         
         private System.Threading.SendOrPostCallback AddOrdersOperationCompleted;
         
-        private System.Threading.SendOrPostCallback AddOrderToQueueOperationCompleted;
+        private System.Threading.SendOrPostCallback PutOrderInQueueOperationCompleted;
         
-        private System.Threading.SendOrPostCallback RemoveOrderFromQueueOperationCompleted;
+        private System.Threading.SendOrPostCallback MakeOrderOperationCompleted;
         
-        private System.Threading.SendOrPostCallback InitOrderQueueOperationCompleted;
+        private System.Threading.SendOrPostCallback GetOrdersByTagOperationCompleted;
         
         private System.Threading.SendOrPostCallback AddReviewOperationCompleted;
         
@@ -193,13 +193,13 @@ namespace client.MyWs {
         public event AddOrdersCompletedEventHandler AddOrdersCompleted;
         
         /// <remarks/>
-        public event AddOrderToQueueCompletedEventHandler AddOrderToQueueCompleted;
+        public event PutOrderInQueueCompletedEventHandler PutOrderInQueueCompleted;
         
         /// <remarks/>
-        public event RemoveOrderFromQueueCompletedEventHandler RemoveOrderFromQueueCompleted;
+        public event MakeOrderCompletedEventHandler MakeOrderCompleted;
         
         /// <remarks/>
-        public event InitOrderQueueCompletedEventHandler InitOrderQueueCompleted;
+        public event GetOrdersByTagCompletedEventHandler GetOrdersByTagCompleted;
         
         /// <remarks/>
         public event AddReviewCompletedEventHandler AddReviewCompleted;
@@ -879,90 +879,87 @@ namespace client.MyWs {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddOrderToQueue", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AddOrderToQueue(ref OrderQueue queue, Orders order) {
-            object[] results = this.Invoke("AddOrderToQueue", new object[] {
-                        queue,
-                        order});
-            queue = ((OrderQueue)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PutOrderInQueue", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PutOrderInQueue(Orders order, bool isReady) {
+            this.Invoke("PutOrderInQueue", new object[] {
+                        order,
+                        isReady});
         }
         
         /// <remarks/>
-        public void AddOrderToQueueAsync(OrderQueue queue, Orders order) {
-            this.AddOrderToQueueAsync(queue, order, null);
+        public void PutOrderInQueueAsync(Orders order, bool isReady) {
+            this.PutOrderInQueueAsync(order, isReady, null);
         }
         
         /// <remarks/>
-        public void AddOrderToQueueAsync(OrderQueue queue, Orders order, object userState) {
-            if ((this.AddOrderToQueueOperationCompleted == null)) {
-                this.AddOrderToQueueOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddOrderToQueueOperationCompleted);
+        public void PutOrderInQueueAsync(Orders order, bool isReady, object userState) {
+            if ((this.PutOrderInQueueOperationCompleted == null)) {
+                this.PutOrderInQueueOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPutOrderInQueueOperationCompleted);
             }
-            this.InvokeAsync("AddOrderToQueue", new object[] {
-                        queue,
-                        order}, this.AddOrderToQueueOperationCompleted, userState);
+            this.InvokeAsync("PutOrderInQueue", new object[] {
+                        order,
+                        isReady}, this.PutOrderInQueueOperationCompleted, userState);
         }
         
-        private void OnAddOrderToQueueOperationCompleted(object arg) {
-            if ((this.AddOrderToQueueCompleted != null)) {
+        private void OnPutOrderInQueueOperationCompleted(object arg) {
+            if ((this.PutOrderInQueueCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AddOrderToQueueCompleted(this, new AddOrderToQueueCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.PutOrderInQueueCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RemoveOrderFromQueue", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Orders RemoveOrderFromQueue(ref OrderQueue queue) {
-            object[] results = this.Invoke("RemoveOrderFromQueue", new object[] {
-                        queue});
-            queue = ((OrderQueue)(results[1]));
-            return ((Orders)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/MakeOrder", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void MakeOrder() {
+            this.Invoke("MakeOrder", new object[0]);
         }
         
         /// <remarks/>
-        public void RemoveOrderFromQueueAsync(OrderQueue queue) {
-            this.RemoveOrderFromQueueAsync(queue, null);
+        public void MakeOrderAsync() {
+            this.MakeOrderAsync(null);
         }
         
         /// <remarks/>
-        public void RemoveOrderFromQueueAsync(OrderQueue queue, object userState) {
-            if ((this.RemoveOrderFromQueueOperationCompleted == null)) {
-                this.RemoveOrderFromQueueOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRemoveOrderFromQueueOperationCompleted);
+        public void MakeOrderAsync(object userState) {
+            if ((this.MakeOrderOperationCompleted == null)) {
+                this.MakeOrderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnMakeOrderOperationCompleted);
             }
-            this.InvokeAsync("RemoveOrderFromQueue", new object[] {
-                        queue}, this.RemoveOrderFromQueueOperationCompleted, userState);
+            this.InvokeAsync("MakeOrder", new object[0], this.MakeOrderOperationCompleted, userState);
         }
         
-        private void OnRemoveOrderFromQueueOperationCompleted(object arg) {
-            if ((this.RemoveOrderFromQueueCompleted != null)) {
+        private void OnMakeOrderOperationCompleted(object arg) {
+            if ((this.MakeOrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.RemoveOrderFromQueueCompleted(this, new RemoveOrderFromQueueCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.MakeOrderCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InitOrderQueue", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public OrderQueue InitOrderQueue() {
-            object[] results = this.Invoke("InitOrderQueue", new object[0]);
-            return ((OrderQueue)(results[0]));
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetOrdersByTag", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Orders[] GetOrdersByTag(bool ready) {
+            object[] results = this.Invoke("GetOrdersByTag", new object[] {
+                        ready});
+            return ((Orders[])(results[0]));
         }
         
         /// <remarks/>
-        public void InitOrderQueueAsync() {
-            this.InitOrderQueueAsync(null);
+        public void GetOrdersByTagAsync(bool ready) {
+            this.GetOrdersByTagAsync(ready, null);
         }
         
         /// <remarks/>
-        public void InitOrderQueueAsync(object userState) {
-            if ((this.InitOrderQueueOperationCompleted == null)) {
-                this.InitOrderQueueOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInitOrderQueueOperationCompleted);
+        public void GetOrdersByTagAsync(bool ready, object userState) {
+            if ((this.GetOrdersByTagOperationCompleted == null)) {
+                this.GetOrdersByTagOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetOrdersByTagOperationCompleted);
             }
-            this.InvokeAsync("InitOrderQueue", new object[0], this.InitOrderQueueOperationCompleted, userState);
+            this.InvokeAsync("GetOrdersByTag", new object[] {
+                        ready}, this.GetOrdersByTagOperationCompleted, userState);
         }
         
-        private void OnInitOrderQueueOperationCompleted(object arg) {
-            if ((this.InitOrderQueueCompleted != null)) {
+        private void OnGetOrdersByTagOperationCompleted(object arg) {
+            if ((this.GetOrdersByTagCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.InitOrderQueueCompleted(this, new InitOrderQueueCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetOrdersByTagCompleted(this, new GetOrdersByTagCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1162,37 +1159,36 @@ namespace client.MyWs {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class OrderQueue {
+    public partial class Review {
         
-        private Orders[] queueField;
+        private string contentField;
         
-        /// <remarks/>
-        public Orders[] queue {
-            get {
-                return this.queueField;
-            }
-            set {
-                this.queueField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.9221.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Orders {
+        private int reviewIdField;
         
         private int userIdField;
         
-        private int orderIdField;
-        
-        private OrderedItems[] orderListField;
+        /// <remarks/>
+        public string content {
+            get {
+                return this.contentField;
+            }
+            set {
+                this.contentField = value;
+            }
+        }
         
         /// <remarks/>
-        public int UserId {
+        public int reviewId {
+            get {
+                return this.reviewIdField;
+            }
+            set {
+                this.reviewIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int userId {
             get {
                 return this.userIdField;
             }
@@ -1200,26 +1196,6 @@ namespace client.MyWs {
                 this.userIdField = value;
             }
         }
-        
-        /// <remarks/>
-        public int OrderId {
-            get {
-                return this.orderIdField;
-            }
-            set {
-                this.orderIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public OrderedItems[] OrderList {
-            get {
-                return this.orderListField;
-            }
-            set {
-                this.orderListField = value;
-            }
-        }
     }
     
     /// <remarks/>
@@ -1228,65 +1204,29 @@ namespace client.MyWs {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class OrderedItems {
+    public partial class Reviews {
         
-        private int orderIdField;
+        private int itemIdField;
         
-        private FoodItem[] foodItemsField;
-        
-        private int[] foodAmountsField;
-        
-        private System.DateTime orderDateField;
-        
-        private int totalPriceField;
+        private Review[] reviewsField;
         
         /// <remarks/>
-        public int OrderId {
+        public int itemId {
             get {
-                return this.orderIdField;
+                return this.itemIdField;
             }
             set {
-                this.orderIdField = value;
+                this.itemIdField = value;
             }
         }
         
         /// <remarks/>
-        public FoodItem[] FoodItems {
+        public Review[] reviews {
             get {
-                return this.foodItemsField;
+                return this.reviewsField;
             }
             set {
-                this.foodItemsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int[] FoodAmounts {
-            get {
-                return this.foodAmountsField;
-            }
-            set {
-                this.foodAmountsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime OrderDate {
-            get {
-                return this.orderDateField;
-            }
-            set {
-                this.orderDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int totalPrice {
-            get {
-                return this.totalPriceField;
-            }
-            set {
-                this.totalPriceField = value;
+                this.reviewsField = value;
             }
         }
     }
@@ -1378,29 +1318,65 @@ namespace client.MyWs {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Reviews {
+    public partial class OrderedItems {
         
-        private int itemIdField;
+        private int orderIdField;
         
-        private Review[] reviewsField;
+        private FoodItem[] foodItemsField;
+        
+        private int[] foodAmountsField;
+        
+        private System.DateTime orderDateField;
+        
+        private int totalPriceField;
         
         /// <remarks/>
-        public int itemId {
+        public int OrderId {
             get {
-                return this.itemIdField;
+                return this.orderIdField;
             }
             set {
-                this.itemIdField = value;
+                this.orderIdField = value;
             }
         }
         
         /// <remarks/>
-        public Review[] reviews {
+        public FoodItem[] FoodItems {
             get {
-                return this.reviewsField;
+                return this.foodItemsField;
             }
             set {
-                this.reviewsField = value;
+                this.foodItemsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int[] FoodAmounts {
+            get {
+                return this.foodAmountsField;
+            }
+            set {
+                this.foodAmountsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime OrderDate {
+            get {
+                return this.orderDateField;
+            }
+            set {
+                this.orderDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int totalPrice {
+            get {
+                return this.totalPriceField;
+            }
+            set {
+                this.totalPriceField = value;
             }
         }
     }
@@ -1411,41 +1387,41 @@ namespace client.MyWs {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Review {
-        
-        private string contentField;
-        
-        private int reviewIdField;
+    public partial class Orders {
         
         private int userIdField;
         
-        /// <remarks/>
-        public string content {
-            get {
-                return this.contentField;
-            }
-            set {
-                this.contentField = value;
-            }
-        }
+        private int orderIdField;
+        
+        private OrderedItems[] orderListField;
         
         /// <remarks/>
-        public int reviewId {
-            get {
-                return this.reviewIdField;
-            }
-            set {
-                this.reviewIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int userId {
+        public int UserId {
             get {
                 return this.userIdField;
             }
             set {
                 this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OrderId {
+            get {
+                return this.orderIdField;
+            }
+            set {
+                this.orderIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public OrderedItems[] OrderList {
+            get {
+                return this.orderListField;
+            }
+            set {
+                this.orderListField = value;
             }
         }
     }
@@ -2066,86 +2042,34 @@ namespace client.MyWs {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    public delegate void AddOrderToQueueCompletedEventHandler(object sender, AddOrderToQueueCompletedEventArgs e);
+    public delegate void PutOrderInQueueCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void MakeOrderCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
+    public delegate void GetOrdersByTagCompletedEventHandler(object sender, GetOrdersByTagCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class AddOrderToQueueCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetOrdersByTagCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal AddOrderToQueueCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetOrdersByTagCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public OrderQueue queue {
+        public Orders[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((OrderQueue)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    public delegate void RemoveOrderFromQueueCompletedEventHandler(object sender, RemoveOrderFromQueueCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class RemoveOrderFromQueueCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal RemoveOrderFromQueueCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Orders Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Orders)(this.results[0]));
-            }
-        }
-        
-        /// <remarks/>
-        public OrderQueue queue {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((OrderQueue)(this.results[1]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    public delegate void InitOrderQueueCompletedEventHandler(object sender, InitOrderQueueCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9221.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class InitOrderQueueCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal InitOrderQueueCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public OrderQueue Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((OrderQueue)(this.results[0]));
+                return ((Orders[])(this.results[0]));
             }
         }
     }

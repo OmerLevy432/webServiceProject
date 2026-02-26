@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
+
 namespace client.userPages
 {
     public partial class OrderFood : System.Web.UI.Page
@@ -98,17 +99,6 @@ namespace client.userPages
             }
         }
 
-        protected void AddOrderToQueue(Orders order)
-        {
-            OrderQueue notReadyQueue = (MyWs.OrderQueue)Session["notReadyQueue"];
-            if (notReadyQueue == null)
-            {
-                notReadyQueue = service.InitOrderQueue();
-            }
-
-            service.AddOrderToQueue(ref notReadyQueue, order);
-            Session["notReadyQueue"] = notReadyQueue;
-        }
 
         protected void SubmitOrder_Click(object sender, EventArgs e)
         {
@@ -123,8 +113,7 @@ namespace client.userPages
             service.AddOrderToHistory(ref ordersHistory, ref orderedItems);
             service.AddOrders(ordersHistory);
 
-            AddOrderToQueue(ordersHistory);
-
+            service.PutOrderInQueue(ordersHistory, false);
             Response.Redirect("../FoodPages/FoodList.aspx");
         }
 

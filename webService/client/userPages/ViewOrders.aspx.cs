@@ -10,21 +10,14 @@ namespace client.userPages
     public partial class ViewOrders : System.Web.UI.Page
     {
         MyWs.MainService service;
-        public MyWs.OrderQueue readyQueue;
         protected void Page_Load(object sender, EventArgs e)
         {
             service = new MyWs.MainService();
 
             if (!IsPostBack)
             {
-                readyQueue = (MyWs.OrderQueue)Session["readyQueue"];
-
-                // check if the user has purchase history
-                if (readyQueue != null)
-                {
-                    repeaterOrders.DataSource = readyQueue.queue;
-                    repeaterOrders.DataBind();
-                }
+                repeaterOrders.DataSource = service.GetOrdersByTag(true);
+                repeaterOrders.DataBind();
             }
         }
     }

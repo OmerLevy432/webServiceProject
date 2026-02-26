@@ -75,7 +75,7 @@
     <Compile Include="App_Code\dbClass.cs" />
     <Compile Include="App_Code\MyUser.cs" />
     <Compile Include="App_Code\FoodItem.cs" />
-    <Compile Include="App_Code\OrderQueue.cs" />
+    <Compile Include="App_Code\OrdersXmlWrapper.cs" />
     <Compile Include="App_Code\Review.cs" />
     <Compile Include="App_Code\Reviews.cs" />
     <Compile Include="App_Code\Roles.cs" />
