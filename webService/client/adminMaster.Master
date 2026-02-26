@@ -20,9 +20,9 @@
                 <nav class="nav-links">
                     <a runat="server" href="~/default.aspx">Home</a>
                     <a runat="server" href="~/FoodPages/FoodList.aspx">Food List</a>
-                    <a runat="server" href="~/userPages/ViewOrders.aspx">Ready Orders</a>
                     <a runat="server" href="~/userPages/login.aspx">Login</a>
                     <a runat="server" href="~/userPages/signUp.aspx">Sign Up</a>
+                    <asp:Button ID="LogoutButton" runat="server" Text="Log Out" OnClick="LogoutButton_Click" />
                     
                     <%=allowedPages %>
                 </nav>

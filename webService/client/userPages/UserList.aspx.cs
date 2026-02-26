@@ -24,5 +24,18 @@ namespace client
                 userRepeater.DataBind();
             }
         }
+
+        protected void HandleUserCommand(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "LoginAs")
+            {
+                // Set the session to the impersonated user's ID
+                int newUserID = int.Parse(e.CommandArgument.ToString());
+                Session["userObject"] = service.UserGet(newUserID);
+
+                // Redirect to their profile
+                Response.Redirect("UserProfile.aspx");
+            }
+        }
     }
 }

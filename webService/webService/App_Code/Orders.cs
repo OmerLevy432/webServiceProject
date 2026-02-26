@@ -66,6 +66,7 @@ namespace webService.App_Code
             for (i = 0; i < this.OrderList.Count; i++)
             {
                 this.OrderList[i].setTotalPrice();
+                this.OrderList[i].OrderDate = DateTime.Now;
                 query = string.Format("insert into orders (userId, orderDate, totalPrice) values ('{0}', '{1}', '{2}')", this.UserId, this.OrderList[i].OrderDate, this.OrderList[i].totalPrice);
                 rowsChanged += DbQ.ExecuteNonQuery(query);
 

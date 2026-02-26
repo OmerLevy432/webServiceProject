@@ -23,9 +23,14 @@ namespace client
             switch (user.RoleTag.RoleId)
             {
                 case 1:
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserProfile.aspx") + "\">Profile</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/ViewOrders.aspx") + "\">Ready Orders</a>\n";
+                    break;
+
                 case 2:
                     allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserProfile.aspx") + "\">Profile</a>\n";
                     allowedPages += "<a href=\"" + ResolveUrl("~/userPages/MakeOrders.aspx") + "\">Make Order</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/ViewOrders.aspx") + "\">Ready Orders</a>\n";
                     break;
 
                 case 3:
@@ -34,9 +39,16 @@ namespace client
                     allowedPages += "<a href=\"" + ResolveUrl("~/userPages/chooseOrderUser.aspx") + "\">Order</a>\n";
                     allowedPages += "<a href=\"" + ResolveUrl("~/rolePages/RoleList.aspx") + "\">Role List</a>\n";
                     allowedPages += "<a href=\"" + ResolveUrl("~/userPages/UserList.aspx") + "\">User List</a>\n";
+                    allowedPages += "<a href=\"" + ResolveUrl("~/userPages/ViewOrders.aspx") + "\">Ready Orders</a>\n";
                     break;
 
             }
+        }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Session["userObject"] = null;
+            Response.Redirect("~/FoodPages/FoodList.aspx");
         }
     }
 }
